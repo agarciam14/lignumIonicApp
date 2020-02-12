@@ -1,0 +1,7 @@
+{
+  "name": "Lignum",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
