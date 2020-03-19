@@ -1,0 +1,49 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <div class="col-img">
+      <img src=""/>
+    </div>
+    <ion-col></ion-col>
+  </ion-row>
+
+  <ion-toolbar>
+    <ion-title class="lignum-title">LIGNUM</ion-title>
+  </ion-toolbar>
+
+  <div class="login-box">
+    <form>
+      <ion-row>
+        <ion-col>
+          <ion-list insert>
+            <ion-label>Nombre de Usuario</ion-label>
+            <ion-item>
+              <ion-input type="text" placeholder="Nombre de Usuario" [(ngModel)]="usuario['usuario']" [ngModelOptions]="{standalone:true}" required></ion-input>
+            </ion-item>
+            
+            <ion-label>Contraseña</ion-label>
+            <ion-item>
+              <ion-input type="password" placeholder="Contraseña" [(ngModel)]="usuario['contrasena']" [ngModelOptions]="{standalone:true}" required></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <a>¿Olvidó su contraseña?</a>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <button type="submit">INGRESAR</button>
+
+          <button>REGISTRARSE</button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+</ion-content>

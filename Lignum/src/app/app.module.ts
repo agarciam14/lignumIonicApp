@@ -14,6 +14,8 @@ import { AppComponent } from './app.component';
 // Desde aca se importan los providers
 import { ProviderSettingsProvider } from '../providers/provider-settings/provider-settings';
 import { GeolocalizacionServicesProvider } from '../providers/geolocalizacion-service/geolocalizacion-service';
+import { RegistroUsuarioNuevoServicesProvider } from '../providers/registro-usuario-nuevo-service/registro-usuario-nuevo-service';
+import { LoginServicesProvider } from '../providers/login-service/login-service';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { GeolocalizacionServicesProvider } from '../providers/geolocalizacion-se
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ProviderSettingsProvider,
-    GeolocalizacionServicesProvider
+    GeolocalizacionServicesProvider,
+    RegistroUsuarioNuevoServicesProvider,
+    LoginServicesProvider
   ],
   bootstrap: [AppComponent],
 })
