@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 declare var google;
 
 @Component({
@@ -7,20 +7,19 @@ declare var google;
   styleUrls: ['./maps.page.scss'],
 })
 export class MapsPage implements OnInit {
-  map;
-  @ViewChild('mapElement', {static:false}) mapElement;
+  @ViewChild('mapElement', {static:false}) mapElement: ElementRef;
   constructor() {
   }
 
   ngOnInit(): void {
   }
 
-  ngAfterContentInit(): void {
-    this.map = new google.maps.Map(
+  ngAfterViewInit(): void {
+    const map = new google.maps.Map(
         this.mapElement.nativeElement,
         {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+          center: {lat: 6.230833, lng: -75.590553},
+          zoom: 11
         });
   }
 
