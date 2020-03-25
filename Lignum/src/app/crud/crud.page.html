@@ -1,23 +1,44 @@
 <ion-header>
+  <ion-toolbar>
+    <ion-title>Formulario Usuario</ion-title>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen>
-  <ion-segment value="favorite">
-    <ion-button value="Rutas" shape="round">
-      <ion-label>Rutas</ion-label>
-    </ion-button>
-    <ion-button value="Mapa" shape="round">
-      <ion-label>Mapa</ion-label>
-    </ion-button>
-    <ion-button value="map" shape="round">
-      <ion-label>Arboles</ion-label>
-    </ion-button>
-  </ion-segment>
-  <ion-segment>
-    <ion-input placeholder="Username"></ion-input>
-    <ion-button shape="round">
-      <ion-label>Buscar</ion-label>
-    </ion-button>
-  </ion-segment>
-
+<ion-content>
+  <form>
+    <ion-list>
+      <ion-item>
+        <ion-label>Nombre de Usuario:</ion-label>
+        <ion-input type="text" placeholder="Nombre de usuario" [(ngModel)]="usuario['nombre_usuario']" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Documento:</ion-label>
+        <ion-input type="text" placeholder="Documento" [(ngModel)]="usuario['documento']" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Correo electrónico:</ion-label>
+        <ion-input type="email" placeholder="Email" [(ngModel)]="usuario['correo']" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tipo de Usuario:</ion-label>
+        <ion-select [(ngModel)]="usuario['tipo']" [ngModelOptions]="{standalone: true}">
+          <ion-select-option value="administrador">Administrador</ion-select-option>
+          <ion-select-option value="usuario_comun">Usuario común</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div>
+        <ion-item>
+          <ion-label>Contraseña:</ion-label>
+          <ion-input type="password" placeholder="Contraseña" [(ngModel)]="usuario['contrasena']" [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Confirmar contraseña:</ion-label>
+          <ion-input type="password" placeholder="Confirmar contraseña" [(ngModel)]="usuario['confirmar_contrasena']" [ngModelOptions]="{standalone: true}"></ion-input>
+        </ion-item>
+      </div>
+    </ion-list>
+    <div>
+      <button ion-button block type="submit" (click)="crearUsuario()">CREAR</button>
+    </div>
+  </form>
 </ion-content>
