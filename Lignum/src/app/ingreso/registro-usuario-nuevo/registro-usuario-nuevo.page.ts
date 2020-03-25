@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroUsuarioNuevoPage implements OnInit {
 
+  usuario = {
+    nombre_usuario: "",
+    documento: "",
+    correo: "",
+    contrasena: "",
+    confirmar_contrasena: "",
+    tipo: ""
+  }
+
   constructor() { }
 
   ngOnInit() {
