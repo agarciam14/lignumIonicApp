@@ -22,6 +22,14 @@ const routes: Routes = [
     path: 'tab3',
     loadChildren: () => import('./tab3/tab3.module').then( m => m.Tab3PageModule)
   },
+  {
+    path: 'arboles',
+    loadChildren: () => import('./arboles/arboles.module').then( m => m.ArbolesPageModule)
+  },
+  {
+    path: 'rutas',
+    loadChildren: () => import('./rutas/rutas.module').then( m => m.RutasPageModule)
+  },
 ];
 @NgModule({
   imports: [

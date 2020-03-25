@@ -24,7 +24,7 @@ export class MapsPage implements OnInit {
           this.mapElement.nativeElement,
           {
             center: {lat: 6.230833, lng: -75.590553},
-            zoom: 15
+            zoom: 17
           });
           /*Localización del macador*/
           const pos = {
