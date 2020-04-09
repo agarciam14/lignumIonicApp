@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { MapsPageRoutingModule } from './maps-routing.module';
@@ -9,12 +9,21 @@ import { MapsPageRoutingModule } from './maps-routing.module';
 import { MapsPage } from './maps.page';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: MapsPage
+  }
+];
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MapsPageRoutingModule
+    MapsPageRoutingModule,
+    RouterModule.forChild(routes),
+      ReactiveFormsModule
   ],
   declarations: [MapsPage],
   providers: [Geolocation]
