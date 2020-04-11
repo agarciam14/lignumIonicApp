@@ -9,5 +9,9 @@ export class LoginServicesProvider {
 
   apiUrl = this.providerSettingsProvider.getMainUrl();
 
+  public autenticarUsuario(usuario) {
+    return this.http.post(this.apiUrl+'/api/login', {'usuario': usuario});
+  }
+
   
 }

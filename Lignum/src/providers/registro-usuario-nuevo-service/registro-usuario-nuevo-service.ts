@@ -9,5 +9,8 @@ export class RegistroUsuarioNuevoServicesProvider {
 
   apiUrl = this.providerSettingsProvider.getMainUrl();
 
-  
+  public registroUsiarioNuevo(usuario) {
+    return this.http.post(this.apiUrl+'/api/registro_usuario', {'usuario': usuario});
+  }
+
 }
