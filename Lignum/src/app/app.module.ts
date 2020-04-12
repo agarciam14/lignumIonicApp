@@ -16,6 +16,9 @@ import { ProviderSettingsProvider } from '../providers/provider-settings/provide
 import { GeolocalizacionServicesProvider } from '../providers/geolocalizacion-service/geolocalizacion-service';
 import { RegistroUsuarioNuevoServicesProvider } from '../providers/registro-usuario-nuevo-service/registro-usuario-nuevo-service';
 import { LoginServicesProvider } from '../providers/login-service/login-service';
+import { AdministradorCrearUsuarioServicesProvider } from '../providers/administrador-crear-usuario-service/administrador-crear-usuario-service';
+import { AdministradorDatosUsuarioServicesProvider } from '../providers/administrador-datos-usuario-service/administrador-datos-usuario-service';
+import { AdministradorListarUsuariosServicesProvider } from '../providers/administrador-listar-usuarios-service/administrador-listar-usuarios-service';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { LoginServicesProvider } from '../providers/login-service/login-service'
     ProviderSettingsProvider,
     GeolocalizacionServicesProvider,
     RegistroUsuarioNuevoServicesProvider,
-    LoginServicesProvider
+    LoginServicesProvider,
+    AdministradorCrearUsuarioServicesProvider,
+    AdministradorDatosUsuarioServicesProvider,
+    AdministradorListarUsuariosServicesProvider
   ],
   bootstrap: [AppComponent],
 })

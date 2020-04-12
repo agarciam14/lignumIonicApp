@@ -7,10 +7,6 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'crud',
-    loadChildren: () => import('./crud/crud.module').then( m => m.CrudPageModule)
-  },
-  {
     path: 'registro-usuario-nuevo',
     loadChildren: () => import('./ingreso/registro-usuario-nuevo/registro-usuario-nuevo.module').then( m => m.RegistroUsuarioNuevoPageModule)
   },
@@ -21,6 +17,18 @@ const routes: Routes = [
   {
     path: 'recuperar-contrasena',
     loadChildren: () => import('./ingreso/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
+  },
+  {
+    path: 'crear-usuario',
+    loadChildren: () => import('./funciones-administrador/crear-usuario/crear-usuario.module').then( m => m.CrearUsuarioPageModule)
+  },
+  {
+    path: 'lista-usuarios',
+    loadChildren: () => import('./funciones-administrador/lista-usuarios/lista-usuarios.module').then( m => m.ListaUsuariosPageModule)
+  },
+  {
+    path: 'datos-usuario',
+    loadChildren: () => import('./funciones-administrador/datos-usuario/datos-usuario.module').then( m => m.DatosUsuarioPageModule)
   }
 ];
 @NgModule({
