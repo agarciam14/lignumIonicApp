@@ -47,7 +47,7 @@ export class MapsPage implements OnInit {
     const marker = new google.maps.Marker({
       position: this.currentLocation,
       map: map,
-      tittle: '',
+      tittle: 'hola',
       icon: icon
     });
     this.directionsDisplay.setMap(map);
