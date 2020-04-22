@@ -13,16 +13,17 @@ export class MapsPage implements OnInit {
   directionsService = new google.maps.DirectionsService;
   directionsDisplay = new google.maps.DirectionsRenderer;
   directionForm: FormGroup;
+  logs: String[] = [];
   currentLocation: any = {
     lat: 0,
     lng: 0
   };
+
   constructor(private fb: FormBuilder, private geolocation: Geolocation) {
     this.createDirectionForm();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   createDirectionForm() {
     this.directionForm = this.fb.group({
@@ -34,22 +35,31 @@ export class MapsPage implements OnInit {
     this.geolocation.getCurrentPosition().then((resp) => {
       this.currentLocation.lat = resp.coords.latitude;
       this.currentLocation.lng = resp.coords.longitude;
+    }).catch((error) => {
+      window.alert('Error getting location: ' + error);
     });
-    const map = new google.maps.Map(this.mapElement.nativeElement, {
-      zoom: 16,
-      center: {lat: 6.217, lng: -75.567}
-    });
+
+    const map = new google.maps.Map(this.mapElement.nativeElement, {zoom: 8});
+
     map.setCenter(this.currentLocation);
+
     const icon = {
       url: 'assets/icon/user.png',
       scaledSize: new google.maps.Size(40, 40),
     };
+
     const marker = new google.maps.Marker({
       position: this.currentLocation,
       map: map,
       tittle: '',
       icon: icon
     });
+
+    let watch=this.geolocation.watchPosition();
+    watch.subscribe(resultado => {
+      this.logs.push("lat: "+ resultado.coords.latitude + ", long: "+ resultado.coords.longitude);
+    });
+
     this.directionsDisplay.setMap(map);
   }
 
