@@ -217,13 +217,6 @@ var MapsPage = /** @class */ (function () {
         this.createDirectionForm();
     }
     MapsPage.prototype.ngOnInit = function () { };
-    MapsPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        var escuchador = this.geolocation.watchPosition();
-        escuchador.subscribe(function (resultado) {
-            _this.logs.push("lat: " + resultado.coords.latitude + "long: " + resultado.coords.longitude);
-        });
-    };
     MapsPage.prototype.createDirectionForm = function () {
         this.directionForm = this.fb.group({
             destination: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
@@ -234,11 +227,10 @@ var MapsPage = /** @class */ (function () {
         this.geolocation.getCurrentPosition().then(function (resp) {
             _this.currentLocation.lat = resp.coords.latitude;
             _this.currentLocation.lng = resp.coords.longitude;
+        }).catch(function (error) {
+            window.alert('Error getting location: ' + error);
         });
-        var map = new google.maps.Map(this.mapElement.nativeElement, {
-            zoom: 8,
-            center: this.currentLocation
-        });
+        var map = new google.maps.Map(this.mapElement.nativeElement, { zoom: 8 });
         map.setCenter(this.currentLocation);
         var icon = {
             url: 'assets/icon/user.png',
@@ -249,6 +241,10 @@ var MapsPage = /** @class */ (function () {
             map: map,
             tittle: '',
             icon: icon
+        });
+        var watch = this.geolocation.watchPosition();
+        watch.subscribe(function (resultado) {
+            _this.logs.push("lat: " + resultado.coords.latitude + ", long: " + resultado.coords.longitude);
         });
         this.directionsDisplay.setMap(map);
     };

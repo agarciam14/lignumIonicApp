@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { enableDebugTools } from '@angular/platform-browser';
 declare var google;
 
 @Component({

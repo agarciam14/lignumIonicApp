@@ -211,12 +211,6 @@ let MapsPage = class MapsPage {
         this.createDirectionForm();
     }
     ngOnInit() { }
-    ionViewDidLoad() {
-        let escuchador = this.geolocation.watchPosition();
-        escuchador.subscribe(resultado => {
-            this.logs.push("lat: " + resultado.coords.latitude + "long: " + resultado.coords.longitude);
-        });
-    }
     createDirectionForm() {
         this.directionForm = this.fb.group({
             destination: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
@@ -226,11 +220,10 @@ let MapsPage = class MapsPage {
         this.geolocation.getCurrentPosition().then((resp) => {
             this.currentLocation.lat = resp.coords.latitude;
             this.currentLocation.lng = resp.coords.longitude;
+        }).catch((error) => {
+            window.alert('Error getting location: ' + error);
         });
-        const map = new google.maps.Map(this.mapElement.nativeElement, {
-            zoom: 8,
-            center: this.currentLocation
-        });
+        const map = new google.maps.Map(this.mapElement.nativeElement, { zoom: 8 });
         map.setCenter(this.currentLocation);
         const icon = {
             url: 'assets/icon/user.png',
@@ -241,6 +234,10 @@ let MapsPage = class MapsPage {
             map: map,
             tittle: '',
             icon: icon
+        });
+        let watch = this.geolocation.watchPosition();
+        watch.subscribe(resultado => {
+            this.logs.push("lat: " + resultado.coords.latitude + ", long: " + resultado.coords.longitude);
         });
         this.directionsDisplay.setMap(map);
     }

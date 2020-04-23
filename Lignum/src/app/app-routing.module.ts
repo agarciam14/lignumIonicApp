@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'rutas',
     loadChildren: () => import('./rutas/rutas.module').then( m => m.RutasPageModule)
   },
+  {
+    path: 'gps',
+    loadChildren: () => import('./gps/gps.module').then( m => m.GpsPageModule)
+  },
 ];
 @NgModule({
   imports: [
