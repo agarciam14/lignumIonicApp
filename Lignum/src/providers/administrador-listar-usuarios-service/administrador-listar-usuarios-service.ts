@@ -9,4 +9,8 @@ export class AdministradorListarUsuariosServicesProvider {
 
   apiUrl = this.providerSettingsProvider.getMainUrl();
 
+  public traerUsuarios() {
+    return this.http.get(this.apiUrl+'/api/');
+  }
+
 }
