@@ -17,30 +17,9 @@ export class MapsPage implements OnInit {
     lat: 0,
     lng: 0
   };
-  bounds: any = null;
-  waypoints: any[];
 
   constructor(private fb: FormBuilder, private geolocation: Geolocation) {
     this.createDirectionForm();
-    this.bounds = new google.maps.LatLngBounds();
-    this.waypoints = [
-      {
-        location: { lat: 6.1568769, lng: -75.6424762 },
-        stopover: true,
-      },
-      {
-        location: { lat: 6.1568780, lng: -75.6424790 },
-        stopover: true,
-      },
-      {
-        location: { lat: 6.1568778, lng: -75.6424778 },
-        stopover: true,
-      },
-      {
-        location: { lat: 6.1568790, lng: -75.6424734 },
-        stopover: true,
-      }
-    ];
   }
 
   ngOnInit(): void {
@@ -78,18 +57,11 @@ export class MapsPage implements OnInit {
 
   calculateAndDisplayRoute(formValues) {
 
-    this.waypoints.forEach(waypoint => {
-      var point = new google.maps.LatLng(waypoint.location.lat, waypoint.location.lng);
-      this.bounds.extend(point);
-    });
-
 
     const that = this;
     this.directionsService.route({
       origin: this.currentLocation,
       destination: formValues.destination,
-      waypoints : this.waypoints,
-      optimizeWaypoints: true,
       travelMode: 'DRIVING'
     }, (response, status) => {
       if (status === 'OK') {

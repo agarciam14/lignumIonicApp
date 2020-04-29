@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'rutas',
     loadChildren: () => import('./rutas/rutas.module').then( m => m.RutasPageModule)
   },
+  {
+    path: 'ciclo-rutas',
+    loadChildren: () => import('./ciclo-rutas/ciclo-rutas.module').then( m => m.CicloRutasPageModule)
+  },
 ];
 @NgModule({
   imports: [
