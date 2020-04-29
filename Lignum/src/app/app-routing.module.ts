@@ -27,12 +27,12 @@ const routes: Routes = [
     loadChildren: () => import('./arboles/arboles.module').then( m => m.ArbolesPageModule)
   },
   {
-    path: 'rutas',
-    loadChildren: () => import('./rutas/rutas.module').then( m => m.RutasPageModule)
-  },
-  {
     path: 'ciclo-rutas',
     loadChildren: () => import('./ciclo-rutas/ciclo-rutas.module').then( m => m.CicloRutasPageModule)
+  },
+  {
+    path: 'info-rutas',
+    loadChildren: () => import('./info-rutas/info-rutas.module').then( m => m.InfoRutasPageModule)
   },
 ];
 @NgModule({
