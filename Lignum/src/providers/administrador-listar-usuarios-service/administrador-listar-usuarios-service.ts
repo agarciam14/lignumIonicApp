@@ -10,7 +10,7 @@ export class AdministradorListarUsuariosServicesProvider {
   apiUrl = this.providerSettingsProvider.getMainUrl();
 
   public traerUsuarios() {
-    return this.http.get(this.apiUrl+'/api/');
+    return this.http.get(this.apiUrl+'/api/crud_administrador/traer_usuarios');
   }
 
 }

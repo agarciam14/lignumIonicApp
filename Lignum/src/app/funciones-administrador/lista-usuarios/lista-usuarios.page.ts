@@ -11,7 +11,9 @@ export class ListaUsuariosPage implements OnInit {
 
   usuarios = [];
 
-  constructor(public administradorListarUsuariosServicesProvider: AdministradorListarUsuariosServicesProvider, public alertController: AlertController) { }
+  constructor(public administradorListarUsuariosServicesProvider: AdministradorListarUsuariosServicesProvider, public alertController: AlertController) {
+    this.traerUsuarios();
+  }
 
   ngOnInit() {
   }
@@ -19,15 +21,21 @@ export class ListaUsuariosPage implements OnInit {
   traerUsuarios() {
     this.administradorListarUsuariosServicesProvider.traerUsuarios().subscribe(
       (data) => {
-
+        if(data['tipo'] == 'error_interno') {
+          this.mostrarAlerta('Error en el servidor', data['mensaje']);
+        } else if(data['tipo'] == "aprobado") {
+          this.usuarios = data['mensaje'];
+        } else {
+          this.mostrarAlerta('Mensaje malformado', 'El paquete no se logro enviar bien.')
+        }
       }, (error) => {
         this.mostrarAlerta('Error conexion', 'Ocurrio un error, revisa tu conexion a internet');
       }
     );
   }
 
-  infoUsuario() {
-
+  infoUsuario(documento) {
+    console.log(documento);
   }
 
   crearUsuario() {

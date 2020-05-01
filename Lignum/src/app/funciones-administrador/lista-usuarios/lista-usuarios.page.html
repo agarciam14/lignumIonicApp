@@ -11,13 +11,16 @@
     <ion-row justify-content-center>
       <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
         <ion-list *ngFor="let usuario of usuarios">
-          <div>
+          <div class="usuario">
             <ion-item-sliding #sliding>
-              <ion-item (click)="infoUsurio(usuario.documento)">
+              <ion-item (click)="infoUsuario(usuario.documento)">
                 <ion-avatar>
                   <img src="../../../assets/{{usuario.imagen}}">
                 </ion-avatar>
-                <h2>{{ usuario.nombre_usuario }} {{ usuario.documento }}</h2>
+                <h5 class="nombre">{{ usuario.nombre_usuario }}</h5>
+                <ion-item-divider>
+                  <h6>{{ usuario.documento }}</h6>
+                </ion-item-divider>
               </ion-item>
             </ion-item-sliding>
           </div>
