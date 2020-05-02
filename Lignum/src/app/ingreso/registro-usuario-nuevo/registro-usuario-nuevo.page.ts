@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { RegistroUsuarioNuevoServicesProvider } from '../../../providers/registro-usuario-nuevo-service/registro-usuario-nuevo-service';
 
 @Component({
@@ -18,7 +19,7 @@ export class RegistroUsuarioNuevoPage implements OnInit {
     confirmar_contrasena: ""
   }
 
-  constructor( public registroUsuarioNuevoServicesProvider: RegistroUsuarioNuevoServicesProvider, public alertController: AlertController) { }
+  constructor( private router: Router, public registroUsuarioNuevoServicesProvider: RegistroUsuarioNuevoServicesProvider, public alertController: AlertController) { }
 
   ngOnInit() {
   }
@@ -64,6 +65,10 @@ export class RegistroUsuarioNuevoPage implements OnInit {
     } else {
       return false;
     }
+  }
+
+  volver() {
+    this.router.navigate(['login']);
   }
 
   async mostrarAlerta(titulo, mensaje) {

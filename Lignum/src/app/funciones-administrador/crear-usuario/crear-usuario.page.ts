@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { AdministradorCrearUsuarioServicesProvider } from '../../../providers/administrador-crear-usuario-service/administrador-crear-usuario-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-usuario',
@@ -19,7 +20,7 @@ export class CrearUsuarioPage implements OnInit {
     tipo: ""
   }
 
-  constructor(public administradorCrearUsuarioServicesProvider: AdministradorCrearUsuarioServicesProvider, public alertController: AlertController) { }
+  constructor(private router: Router, public administradorCrearUsuarioServicesProvider: AdministradorCrearUsuarioServicesProvider, public alertController: AlertController) { }
 
   ngOnInit() {
   }
@@ -65,6 +66,10 @@ export class CrearUsuarioPage implements OnInit {
     } else {
       return false;
     }
+  }
+
+  volver() {
+    this.router.navigate(['lista-usuarios']);
   }
 
   async mostrarAlerta(titulo, mensaje) {

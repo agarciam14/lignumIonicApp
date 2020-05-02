@@ -9,16 +9,20 @@ export class AdministradorDatosUsuarioServicesProvider {
 
   apiUrl = this.providerSettingsProvider.getMainUrl();
 
+  public traerInformacionUsuario(documento) {
+    return this.http.get(this.apiUrl+'/api/crud_administrador/traer_datos_usuario?documento='+documento);
+  }
+
   public modificarUsuario(usuario) {
-    return this.http.post(this.apiUrl+'', {});
+    return this.http.post(this.apiUrl+'/api/crud_administrador/modificar_usuario', {'usuario': usuario});
   }
 
-  public modificarContrasena() {
-      
+  public modificarContrasena(documento, contrasena) {
+    return this.http.post(this.apiUrl+'/api/crud_administrador/modificar_contrasena', {'documento': documento, 'contrasena': contrasena});
   }
 
-  public eliminarUsuario() {
-
+  public eliminarUsuario(usuario) {
+    return this.http.post(this.apiUrl+'/api/crud_administrador/eliminar_usuario', {'usuario': usuario});
   }
 
 }

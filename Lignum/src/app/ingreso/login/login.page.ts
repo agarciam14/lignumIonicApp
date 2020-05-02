@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { LoginServicesProvider } from '../../../providers/login-service/login-service';
 
 
@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
           } else if (data["tipo"] == "error_interno") {
             this.mostrarAlerta('Error interno', data['mensaje']);
           } else if (data["tipo"] == "aprobado") {
-            console.log("melo");
+            this.router.navigate(['']);
           }
         }, 
         (error) => {
@@ -40,6 +40,14 @@ export class LoginPage implements OnInit {
         }
       );
     }
+  }
+
+  registrarNuevo() {
+    this.router.navigate(['registro-usuario-nuevo']);
+  }
+
+  olvidoContrasena() {
+    //this.router.navigate(['recuperar-contrasena']);
   }
 
   async mostrarAlerta(titulo, mensaje) {
