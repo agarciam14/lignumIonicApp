@@ -1,5 +1,6 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild, Input} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 declare var google;
 
@@ -9,36 +10,30 @@ declare var google;
   styleUrls: ['./ciclo-rutas.page.scss'],
 })
 
+
 export class CicloRutasPage implements OnInit {
   @ViewChild('mapElement', {static:false}) mapElement: ElementRef;
   directionsService = new google.maps.DirectionsService;
   directionsDisplay = new google.maps.DirectionsRenderer;
-  currentLocation: any = {
-    lat: 0,
-    lng: 0
-  };
-  currentDestination: any = {
-    lat : 0,
-    lng : 0,
-
-  };
+  currentStart: any = {};
+  currentDestination: any = {};
   bounds: any = null;
   waypoints: any[];
 
-  constructor( private geolocation: Geolocation) {
-    this.calculateAndDisplayRoute();
+  constructor(private route: ActivatedRoute, private router: Router, private geolocation: Geolocation) {
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state){
+        this.currentStart = this.router.getCurrentNavigation().extras.state.start;
+        this.currentDestination = this.router.getCurrentNavigation().extras.state.destination;
+        this.calculateAndDisplayRoute();
+      }
+    });
    }
 
   ngOnInit() {
   }
 
   ngAfterViewInit(): void {
-    this.geolocation.getCurrentPosition().then((resp) => {
-      this.currentLocation.lat = 6.312330;
-      this.currentLocation.lng = -75.558003;
-    });
-    this.currentDestination.lat = 6.168796;
-    this.currentDestination.lng = -75.605667;
     const map = new google.maps.Map(this.mapElement.nativeElement, {
       zoom: 16,
       center: {lat: 6.217, lng: -75.567}
@@ -50,9 +45,9 @@ export class CicloRutasPage implements OnInit {
 
   calculateAndDisplayRoute() {
     this.directionsService.route({
-      origin: this.currentLocation,
+      origin: this.currentStart,
       destination: this.currentDestination,
-      travelMode: google.maps.TravelMode.DRIVING,
+      travelMode: google.maps.TravelMode.WALKING,
       avoidTolls: true
     }, (response, status)=> {
       if(status === google.maps.DirectionsStatus.OK) {
@@ -61,7 +56,7 @@ export class CicloRutasPage implements OnInit {
       }else{
         alert('Could not display directions due to: ' + status);
       }
-    });  
+    });
   }
 
   displayRoutes(): void{

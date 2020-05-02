@@ -62,7 +62,7 @@ export class MapsPage implements OnInit {
     this.directionsService.route({
       origin: this.currentLocation,
       destination: formValues.destination,
-      travelMode: 'DRIVING'
+      travelMode: 'WALKING'
     }, (response, status) => {
       if (status === 'OK') {
         that.directionsDisplay.setDirections(response);
