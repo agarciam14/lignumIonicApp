@@ -1,35 +1,45 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tab1/tab1.module').then(m => m.Tab1PageModule)
+    redirectTo: 'login',
+    pathMatch: 'full'
   },
   {
-    path: 'maps',
-    loadChildren: () => import('./maps/maps.module').then( m => m.MapsPageModule)
+    path: 'registro-usuario-nuevo',
+    loadChildren: () => import('./ingreso/registro-usuario-nuevo/registro-usuario-nuevo.module').then( m => m.RegistroUsuarioNuevoPageModule)
   },
   {
-    path: 'tab1',
-    loadChildren: () => import('./tab1/tab1.module').then( m => m.Tab1PageModule)
+    path: 'login',
+    loadChildren: () => import('./ingreso/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'tab2',
-    loadChildren: () => import('./tab2/tab2.module').then( m => m.Tab2PageModule)
+    path: 'recuperar-contrasena',
+    loadChildren: () => import('./ingreso/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
   },
   {
-    path: 'tab3',
-    loadChildren: () => import('./tab3/tab3.module').then( m => m.Tab3PageModule)
+    path: 'crear-usuario',
+    canActivate: [AuthGuardService],
+    loadChildren: () => import('./funciones-administrador/crear-usuario/crear-usuario.module').then( m => m.CrearUsuarioPageModule)
   },
   {
-    path: 'arboles',
-    loadChildren: () => import('./arboles/arboles.module').then( m => m.ArbolesPageModule)
+    path: 'lista-usuarios',
+    canActivate: [AuthGuardService],
+    loadChildren: () => import('./funciones-administrador/lista-usuarios/lista-usuarios.module').then( m => m.ListaUsuariosPageModule)
   },
   {
-    path: 'rutas',
-    loadChildren: () => import('./rutas/rutas.module').then( m => m.RutasPageModule)
+    path: 'datos-usuario',
+    canActivate: [AuthGuardService],
+    loadChildren: () => import('./funciones-administrador/datos-usuario/datos-usuario.module').then( m => m.DatosUsuarioPageModule)
   },
+  {
+    path: 'perfil',
+    canActivate: [AuthGuardService],
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  }
 ];
 @NgModule({
   imports: [
