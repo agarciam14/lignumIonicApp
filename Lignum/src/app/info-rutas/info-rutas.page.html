@@ -1,0 +1,15 @@
+<ion-content>
+  <ion-card-header>
+    <ion-card-title class="ion-text-center">Información de ciclo vias/rutas</ion-card-title>
+  </ion-card-header>
+    <ion-list *ngFor="let ruta of rutas">
+      <div class="rutas">
+        <ion-item-sliding #sliding>
+          <ion-item (click)= "imprimirPunto(ruta)">
+            <ion-icon slot="start" color="medium" name="bicycle"></ion-icon>
+            <h5 class="nombre">{{ ruta["Nombre"] }}</h5>
+          </ion-item>
+        </ion-item-sliding>
+      </div>
+    </ion-list>
+</ion-content>

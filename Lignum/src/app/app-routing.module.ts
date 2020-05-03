@@ -36,6 +36,16 @@ const routes: Routes = [
     loadChildren: () => import('./funciones-administrador/datos-usuario/datos-usuario.module').then( m => m.DatosUsuarioPageModule)
   },
   {
+    path: 'ciclo-rutas',
+    canActivate: [AuthGuardService],
+    loadChildren: () => import('./ciclo-rutas/ciclo-rutas.module').then( m => m.CicloRutasPageModule)
+  },
+  {
+    path: 'info-rutas',
+    canActivate: [AuthGuardService],
+    loadChildren: () => import('./info-rutas/info-rutas.module').then( m => m.InfoRutasPageModule)
+  },
+  {
     path: 'perfil',
     canActivate: [AuthGuardService],
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)

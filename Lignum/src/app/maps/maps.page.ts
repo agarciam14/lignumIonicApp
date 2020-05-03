@@ -17,6 +17,7 @@ export class MapsPage implements OnInit {
     lat: 0,
     lng: 0
   };
+
   constructor(private fb: FormBuilder, private geolocation: Geolocation) {
     this.createDirectionForm();
   }
@@ -51,14 +52,17 @@ export class MapsPage implements OnInit {
       icon: icon
     });
     this.directionsDisplay.setMap(map);
+
   }
 
   calculateAndDisplayRoute(formValues) {
+
+
     const that = this;
     this.directionsService.route({
       origin: this.currentLocation,
       destination: formValues.destination,
-      travelMode: 'DRIVING'
+      travelMode: 'WALKING'
     }, (response, status) => {
       if (status === 'OK') {
         that.directionsDisplay.setDirections(response);
@@ -66,6 +70,10 @@ export class MapsPage implements OnInit {
         window.alert('Directions request failed due to ' + status);
       }
     });
+  }
+
+  displayRoutes(): void{
+
   }
 
 }
