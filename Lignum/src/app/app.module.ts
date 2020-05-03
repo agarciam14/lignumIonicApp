@@ -20,6 +20,7 @@ import { LoginServicesProvider } from '../providers/login-service/login-service'
 import { AdministradorCrearUsuarioServicesProvider } from '../providers/administrador-crear-usuario-service/administrador-crear-usuario-service';
 import { AdministradorDatosUsuarioServicesProvider } from '../providers/administrador-datos-usuario-service/administrador-datos-usuario-service';
 import { AdministradorListarUsuariosServicesProvider } from '../providers/administrador-listar-usuarios-service/administrador-listar-usuarios-service';
+import { InfoUsuarioPerfilServicesProvider } from '../providers/info-usuario-perfil-service/info-usuario-perfil-service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AdministradorListarUsuariosServicesProvider } from '../providers/admini
     LoginServicesProvider,
     AdministradorCrearUsuarioServicesProvider,
     AdministradorDatosUsuarioServicesProvider,
-    AdministradorListarUsuariosServicesProvider
+    AdministradorListarUsuariosServicesProvider,
+    InfoUsuarioPerfilServicesProvider
   ],
   bootstrap: [AppComponent],
 })

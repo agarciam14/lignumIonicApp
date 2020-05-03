@@ -1,6 +1,6 @@
 <ion-header>
   <div class="centrado">
-    <h6>Información de {{ usuario.nombre_usuario }}</h6>
+    <h6>{{ usuario.nombre_usuario }}</h6>
   </div>
 </ion-header>
 
@@ -40,10 +40,8 @@
             <div class="modificaciones">
               <ion-button class="modificar" expand="block" type="submit" (click)="modificarUsuario()">MODIFICAR</ion-button>
               <ion-button class="cabiar_contra" expand="block" type="submit" (click)="cambiarContrasenaModal()">CAMBIAR CONTRASEÑA</ion-button>
-              <ion-button class="eliminar" expand="block" type="submit" (click)="confirmacionEliminar()">ELIMINAR</ion-button>
+              <ion-button class="cerrar_sesion" expand="block" type="submit" (click)="cerrarSesion()">CERRAR SESIÓN</ion-button>
             </div>
-            <ion-item-divider></ion-item-divider>
-            <ion-button (click)="volver()">VOLVER</ion-button>
           </div>
         </ion-col>
       </ion-row>

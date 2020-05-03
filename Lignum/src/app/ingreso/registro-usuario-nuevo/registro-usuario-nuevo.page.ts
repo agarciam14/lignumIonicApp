@@ -67,6 +67,10 @@ export class RegistroUsuarioNuevoPage implements OnInit {
     }
   }
 
+  modificarImagenModal() {
+    
+  }
+
   volver() {
     this.router.navigate(['login']);
   }

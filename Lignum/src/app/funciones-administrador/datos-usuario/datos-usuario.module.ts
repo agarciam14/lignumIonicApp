@@ -7,13 +7,19 @@ import { IonicModule } from '@ionic/angular';
 import { DatosUsuarioPageRoutingModule } from './datos-usuario-routing.module';
 
 import { DatosUsuarioPage } from './datos-usuario.page';
+import { CambiarContrasenaPage } from '../../cambiar-contrasena/cambiar-contrasena.page';
+import { CambiarContrasenaPageModule } from '../../cambiar-contrasena/cambiar-contrasena.module';
 
 @NgModule({
+  entryComponents: [
+    CambiarContrasenaPage
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DatosUsuarioPageRoutingModule
+    DatosUsuarioPageRoutingModule,
+    CambiarContrasenaPageModule
   ],
   declarations: [DatosUsuarioPage]
 })

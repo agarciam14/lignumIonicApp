@@ -27,7 +27,7 @@ export class CrearUsuarioPage implements OnInit {
 
   crearUsuario() {
     if (this.validarCamposVacios()) {
-      this.mostrarAlerta('Campos vacios', 'Los campos usuario, documento, correo y tipo de usuario no deben de estar vacios.')
+      this.mostrarAlerta('Campos vacios', 'Los campos usuario, documento, correo, imágen y tipo de usuario no deben de estar vacios.')
     } else if (this.validarContrasenaIgual()) { 
       this.mostrarAlerta('Contraseña', 'Las contraseñas no coinciden')
     } else {
@@ -53,7 +53,7 @@ export class CrearUsuarioPage implements OnInit {
   }
 
   validarCamposVacios() {
-    if (this.usuario['nombre_usuario'] == "" || this.usuario['documento'] == "" || this.usuario['correo'] == "") {
+    if (this.usuario['nombre_usuario'] == "" || this.usuario['documento'] == "" || this.usuario['correo'] == "" || this.usuario['imagen'] == "") {
       return true;
     } else {
       return false;
@@ -66,6 +66,10 @@ export class CrearUsuarioPage implements OnInit {
     } else {
       return false;
     }
+  }
+
+  modificarImagenModal() {
+    
   }
 
   volver() {

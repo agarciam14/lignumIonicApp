@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, ModalController } from '@ionic/angular';
-import { AdministradorDatosUsuarioServicesProvider } from '../../../providers/administrador-datos-usuario-service/administrador-datos-usuario-service';
+import { ModalController, AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
+import { InfoUsuarioPerfilServicesProvider } from '../../providers/info-usuario-perfil-service/info-usuario-perfil-service';
+import { AutenticacionService } from '../services/autenticacion.service';
 
-import { CambiarContrasenaPage } from '../../cambiar-contrasena/cambiar-contrasena.page';
+import { CambiarContrasenaPage } from '../cambiar-contrasena/cambiar-contrasena.page';
 
 @Component({
-  selector: 'app-datos-usuario',
-  templateUrl: './datos-usuario.page.html',
-  styleUrls: ['./datos-usuario.page.scss'],
+  selector: 'app-perfil',
+  templateUrl: './perfil.page.html',
+  styleUrls: ['./perfil.page.scss'],
 })
-export class DatosUsuarioPage implements OnInit {
+export class PerfilPage implements OnInit {
 
   usuario = {
     'nombre_usuario': '',
@@ -20,7 +21,7 @@ export class DatosUsuarioPage implements OnInit {
     'imagen': ''
   }
 
-  constructor(private route: ActivatedRoute, private router: Router, private administradorDatosUsuarioServicesProvider: AdministradorDatosUsuarioServicesProvider, public alertController: AlertController, private modalController: ModalController) {
+  constructor(private autenticacionService: AutenticacionService, private infoUsuarioPerfilServicesProvider: InfoUsuarioPerfilServicesProvider, private route: ActivatedRoute, private router: Router, public alertController: AlertController, private modalController: ModalController) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.usuario['documento'] = this.router.getCurrentNavigation().extras.state.documento;
@@ -33,7 +34,7 @@ export class DatosUsuarioPage implements OnInit {
   }
 
   traerInformacionUsuario() {
-    this.administradorDatosUsuarioServicesProvider.traerInformacionUsuario(this.usuario['documento']).subscribe(
+    this.infoUsuarioPerfilServicesProvider.traerInformacionUsuario(this.usuario['documento']).subscribe(
       (data) => {
         if(data['tipo'] == 'error_interno') {
           this.mostrarAlerta('Error en el servidor', data['mensaje']);
@@ -54,7 +55,7 @@ export class DatosUsuarioPage implements OnInit {
     if (this.validarCamposVacios()) {
       this.mostrarAlerta('Campos vacios', 'Los campos usuario, documento, correo, imágen y tipo de usuario no deben de estar vacios.')
     } else {
-      this.administradorDatosUsuarioServicesProvider.modificarUsuario(this.usuario).subscribe(
+      this.infoUsuarioPerfilServicesProvider.modificarUsuario(this.usuario).subscribe(
         (data) => {
           if (data["tipo"] == "error_documento") {
             this.mostrarAlerta('Correo o documento invalido', data['mensaje']);
@@ -99,26 +100,8 @@ export class DatosUsuarioPage implements OnInit {
     await modal.present();
   }
 
-  eliminarUsuario() {
-    this.administradorDatosUsuarioServicesProvider.eliminarUsuario(this.usuario).subscribe(
-      (data) => {
-        if(data['tipo'] == 'error_interno') {
-          this.mostrarAlerta('Error en el servidor', data['mensaje']);
-        } else if(data['tipo'] == 'error_documento') { 
-          this.mostrarAlerta('Error en el documento', data['mensaje']);
-        } else if(data['tipo'] == "aprobado") {
-          this.usuario = data['mensaje'];
-        } else {
-          this.mostrarAlerta('Mensaje malformado', 'El paquete no se logro enviar bien.')
-        }
-      }, (error) => {
-        this.mostrarAlerta('Error conexion', 'Ocurrio un error, revisa tu conexion a internet');
-      }
-    );
-  }
-
-  volver() {
-    this.router.navigate(['lista-usuarios']);
+  cerrarSesion() {
+    this.autenticacionService.logout();
   }
 
   async mostrarAlerta(titulo, mensaje) {
@@ -126,27 +109,6 @@ export class DatosUsuarioPage implements OnInit {
       header: titulo,
       message: mensaje,
       buttons: ['ACEPTAR']
-    });
-
-    await alert.present();
-  }
-
-  async confirmacionEliminar() {
-    const alert = await this.alertController.create({
-      header: 'Eliminar usuario',
-      message: '¿Está seguro que desea eliminar al usuario?' + this.usuario['nombre_usuario'],
-      buttons: [
-        {
-          text: 'CONFIRMAR',
-          role: 'confirmar',
-          handler: (accion) => {
-            this.eliminarUsuario();
-          }
-        }, {
-          text: 'CANCELAR',
-          role: 'cancelar',
-        }
-      ]
     });
 
     await alert.present();

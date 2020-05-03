@@ -16,7 +16,10 @@
             <ion-list insert>
               <ion-label>Imágen de avatar:</ion-label>
               <ion-item>
-                
+                <ion-avatar>
+                  <img src="../../../assets/{{usuario.imagen}}">
+                </ion-avatar>
+                <ion-button (click)="modificarImagenModal()">+</ion-button>
               </ion-item>
               <ion-label>Nombre de Usuario</ion-label>
               <ion-item>
