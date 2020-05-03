@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 // Desde aca se importan los providers
@@ -16,6 +17,10 @@ import { ProviderSettingsProvider } from '../providers/provider-settings/provide
 import { GeolocalizacionServicesProvider } from '../providers/geolocalizacion-service/geolocalizacion-service';
 import { RegistroUsuarioNuevoServicesProvider } from '../providers/registro-usuario-nuevo-service/registro-usuario-nuevo-service';
 import { LoginServicesProvider } from '../providers/login-service/login-service';
+import { AdministradorCrearUsuarioServicesProvider } from '../providers/administrador-crear-usuario-service/administrador-crear-usuario-service';
+import { AdministradorDatosUsuarioServicesProvider } from '../providers/administrador-datos-usuario-service/administrador-datos-usuario-service';
+import { AdministradorListarUsuariosServicesProvider } from '../providers/administrador-listar-usuarios-service/administrador-listar-usuarios-service';
+import { InfoUsuarioPerfilServicesProvider } from '../providers/info-usuario-perfil-service/info-usuario-perfil-service';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,7 @@ import { LoginServicesProvider } from '../providers/login-service/login-service'
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    IonicStorageModule.forRoot(),
     HttpClientModule
     ],
   providers: [
@@ -35,7 +41,11 @@ import { LoginServicesProvider } from '../providers/login-service/login-service'
     ProviderSettingsProvider,
     GeolocalizacionServicesProvider,
     RegistroUsuarioNuevoServicesProvider,
-    LoginServicesProvider
+    LoginServicesProvider,
+    AdministradorCrearUsuarioServicesProvider,
+    AdministradorDatosUsuarioServicesProvider,
+    AdministradorListarUsuariosServicesProvider,
+    InfoUsuarioPerfilServicesProvider
   ],
   bootstrap: [AppComponent],
 })

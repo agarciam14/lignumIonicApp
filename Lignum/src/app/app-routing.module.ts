@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },
-  {
-    path: 'crud',
-    loadChildren: () => import('./crud/crud.module').then( m => m.CrudPageModule)
+    redirectTo: 'login',
+    pathMatch: 'full'
   },
   {
     path: 'registro-usuario-nuevo',
@@ -21,6 +19,26 @@ const routes: Routes = [
   {
     path: 'recuperar-contrasena',
     loadChildren: () => import('./ingreso/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
+  },
+  {
+    path: 'crear-usuario',
+    canActivate: [AuthGuardService],
+    loadChildren: () => import('./funciones-administrador/crear-usuario/crear-usuario.module').then( m => m.CrearUsuarioPageModule)
+  },
+  {
+    path: 'lista-usuarios',
+    canActivate: [AuthGuardService],
+    loadChildren: () => import('./funciones-administrador/lista-usuarios/lista-usuarios.module').then( m => m.ListaUsuariosPageModule)
+  },
+  {
+    path: 'datos-usuario',
+    canActivate: [AuthGuardService],
+    loadChildren: () => import('./funciones-administrador/datos-usuario/datos-usuario.module').then( m => m.DatosUsuarioPageModule)
+  },
+  {
+    path: 'perfil',
+    canActivate: [AuthGuardService],
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   }
 ];
 @NgModule({

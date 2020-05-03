@@ -1,7 +1,8 @@
 {
   "name": "Lignum",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
