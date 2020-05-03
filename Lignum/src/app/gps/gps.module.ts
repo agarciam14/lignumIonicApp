@@ -5,7 +5,6 @@ import { IonicModule } from '@ionic/angular';
 import { GpsPageRoutingModule } from './gps-routing.module';
 
 import { GpsPage } from './gps.page';
-import { GoogleMap } from '@ionic-native/google-maps'
 
 
 @NgModule({
@@ -15,6 +14,6 @@ import { GoogleMap } from '@ionic-native/google-maps'
     GpsPageRoutingModule,
   ],
   declarations: [GpsPage],
-  providers: [GoogleMap]
+  providers: []
 })
 export class GpsPageModule {}
