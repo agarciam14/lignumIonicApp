@@ -32,12 +32,12 @@ const routes: Routes = [
   },
   {
     path: 'datos-usuario',
-    //canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     loadChildren: () => import('./funciones-administrador/datos-usuario/datos-usuario.module').then( m => m.DatosUsuarioPageModule)
   },
   {
     path: 'perfil',
-    //canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   }
 ];
