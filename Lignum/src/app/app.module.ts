@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 // Desde aca se importan los providers
@@ -29,6 +30,7 @@ import { AdministradorListarUsuariosServicesProvider } from '../providers/admini
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    IonicStorageModule.forRoot(),
     HttpClientModule
     ],
   providers: [
