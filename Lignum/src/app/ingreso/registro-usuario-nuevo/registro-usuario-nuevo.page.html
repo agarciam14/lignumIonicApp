@@ -1,0 +1,67 @@
+<ion-header>
+  <div class="centrado">
+    <br/>
+    <img src="" width="20%"/>
+    <h3>LIGNUM</h3>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div padding>
+            <h3 class="centrado">Registro</h3>
+            <ion-list insert>
+              <ion-label>Imágen de avatar:</ion-label>
+              <ion-item>
+                <ion-avatar>
+                  <img src="../../../assets/{{usuario.imagen}}">
+                </ion-avatar>
+                <ion-button (click)="modificarImagenModal()">+</ion-button>
+              </ion-item>
+              <ion-label>Nombre de Usuario</ion-label>
+              <ion-item>
+                <ion-input type="text" placeholder="Nombre de usuario" [(ngModel)]="usuario['nombre_usuario']" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+              <ion-label>Documento</ion-label>
+              <ion-item>
+                <ion-input type="text" placeholder="Documento" [(ngModel)]="usuario['documento']" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+              <ion-label>Email</ion-label>
+              <ion-item>
+                <ion-input type="email" placeholder="Email" [(ngModel)]="usuario['correo']" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+              <div>
+                <ion-label>Contraseña</ion-label>
+                <ion-item>
+                  <ion-input type="password" placeholder="Contraseña" [(ngModel)]="usuario['contrasena']" [ngModelOptions]="{standalone: true}" required></ion-input>
+                </ion-item>
+                <ion-label>Confirmar Contraseña</ion-label>
+                <ion-item>
+                  <ion-input type="password" placeholder="Confirmar contraseña" [(ngModel)]="usuario['confirmar_contrasena']" [ngModelOptions]="{standalone: true}" required></ion-input>
+                </ion-item>
+              </div>
+            </ion-list>
+          </div>
+
+          <div padding class="info_contrasena">
+            <h5>Para mantener tu cuenta segura recuerda que la contraseña debe de cumplir con las siguientes condiciones:</h5>
+            <h6>- Tener más de 8 caracteres</h6>
+            <h6>- Contener letras mayusculas y minusculas</h6>
+            <h6>- Contener por lo menos un número</h6>
+            <h6>- Contener por lo menos un caracter especial</h6>
+            <h6>- Tu nombre de usuario no sea parte de la contraseña</h6>
+          </div>
+
+          <div padding class="centrado">
+            <ion-button expand="block" type="submit" (click)="crearUsuario()">CREAR</ion-button>
+            <ion-item-divider></ion-item-divider>
+            <ion-button (click)="volver()">VOLVER</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>
