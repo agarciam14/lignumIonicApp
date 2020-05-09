@@ -54,6 +54,7 @@ export class DatosUsuarioPage implements OnInit {
     if (this.validarCamposVacios()) {
       this.mostrarAlerta('Campos vacios', 'Los campos usuario, documento, correo, imágen y tipo de usuario no deben de estar vacios.')
     } else {
+      console.log(this.usuario)
       this.administradorDatosUsuarioServicesProvider.modificarUsuario(this.usuario).subscribe(
         (data) => {
           if (data["tipo"] == "error_documento") {
