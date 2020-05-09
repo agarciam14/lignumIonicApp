@@ -17,8 +17,8 @@ export class InfoUsuarioPerfilServicesProvider {
     return this.http.post(this.apiUrl+'/api/crud_administrador/modificar_usuario', {'usuario': usuario});
   }
 
-  public modificarContrasena(documento, contrasena) {
-    return this.http.post(this.apiUrl+'/api/crud_administrador/modificar_contrasena', {'documento': documento, 'contrasena': contrasena});
+  public modificarContrasena(documento, usuario, contrasena) {
+    return this.http.post(this.apiUrl+'/api/crud_administrador/modificar_contrasena', {'documento': documento, 'nombre_usuario': usuario, 'contrasena': contrasena});
   }
 
 }

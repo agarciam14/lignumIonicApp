@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  loged = false;
+  tipo = '';
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -30,8 +33,11 @@ export class AppComponent {
       this.autenticacionService.authenticationState.subscribe(
         state => {
           if(state) {
-            this.router.navigate(['home']);
+            this.loged = true;
+            this.tipo = this.autenticacionService.tipo;
+            this.router.navigate(['lista-usuarios']);
           } else {
+            this.loged = false;
             this.router.navigate(['login']);
           }
       });

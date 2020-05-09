@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { AdministradorListarUsuariosServicesProvider } from '../../../providers/administrador-listar-usuarios-service/administrador-listar-usuarios-service';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -12,8 +12,10 @@ export class ListaUsuariosPage implements OnInit {
 
   usuarios = [];
 
-  constructor(public router: Router, public administradorListarUsuariosServicesProvider: AdministradorListarUsuariosServicesProvider, public alertController: AlertController) {
-    this.traerUsuarios();
+  constructor(private route: ActivatedRoute, public router: Router, public administradorListarUsuariosServicesProvider: AdministradorListarUsuariosServicesProvider, public alertController: AlertController) {
+    this.route.queryParams.subscribe(params => {
+      this.traerUsuarios();
+    });
   }
 
   ngOnInit() {

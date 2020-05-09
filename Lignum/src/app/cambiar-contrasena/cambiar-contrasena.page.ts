@@ -9,17 +9,17 @@ import { InfoUsuarioPerfilServicesProvider } from '../../providers/info-usuario-
 })
 export class CambiarContrasenaPage implements OnInit {
 
-  @Input() nombre_usuario;
-  @Input() documento;
+  @Input() nombre_usuario: string;
+  @Input() documento: string;
 
   usuario = {
-    'usuario': this.nombre_usuario,
-    'documento': this.documento,
     'contrasena': '',
     'confirmar_contrasena': ''
   }
 
-  constructor(private alertController: AlertController, private modalController: ModalController, private infoUsuarioPerfilServicesProvider: InfoUsuarioPerfilServicesProvider) { }
+  constructor(private alertController: AlertController, private modalController: ModalController, private infoUsuarioPerfilServicesProvider: InfoUsuarioPerfilServicesProvider) { 
+    
+  }
 
   ngOnInit() {
   }
@@ -27,7 +27,7 @@ export class CambiarContrasenaPage implements OnInit {
   cambiarContrasena() {
     if(this.validar_campos()) {
       if(this.validar_contrasena_igual()) {
-        this.infoUsuarioPerfilServicesProvider.modificarContrasena(this.usuario['documento'], this.usuario['confirmar_contrasena']).subscribe(
+        this.infoUsuarioPerfilServicesProvider.modificarContrasena(this.documento, this.nombre_usuario, this.usuario['confirmar_contrasena']).subscribe(
           (data) => {
             if (data["tipo"] == "error_documento") {
               this.mostrarAlerta('Correo o documento invalido', data['mensaje']);
@@ -42,7 +42,11 @@ export class CambiarContrasenaPage implements OnInit {
             this.mostrarAlerta('Error conexion', 'Ocurrio un error, revisa tu conexion a internet');
           }
         );
+      } else {
+        this.mostrarAlerta('Contraseña', 'Las contraseñas no coinciden');
       }
+    } else {
+      this.mostrarAlerta('Campos', 'Ningun campo puede estar vacio');
     }
   }
 
@@ -55,7 +59,7 @@ export class CambiarContrasenaPage implements OnInit {
   }
   
   validar_contrasena_igual() {
-    if (this.usuario['contrasena'] != this.usuario['confirmar_contrasena']) {
+    if (this.usuario['contrasena'] == this.usuario['confirmar_contrasena']) {
       return true;
     } else {
       return false;

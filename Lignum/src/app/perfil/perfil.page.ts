@@ -23,10 +23,9 @@ export class PerfilPage implements OnInit {
 
   constructor(private autenticacionService: AutenticacionService, private infoUsuarioPerfilServicesProvider: InfoUsuarioPerfilServicesProvider, private route: ActivatedRoute, private router: Router, public alertController: AlertController, private modalController: ModalController) {
     this.route.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation().extras.state) {
-        this.usuario['documento'] = this.router.getCurrentNavigation().extras.state.documento;
-        this.traerInformacionUsuario();
-      }
+      this.usuario['documento'] = this.autenticacionService.document_;
+
+      this.traerInformacionUsuario();
     });
   }
 
@@ -92,8 +91,8 @@ export class PerfilPage implements OnInit {
     const modal = await this.modalController.create({
       component: CambiarContrasenaPage,
       componentProps: {
-        'usuario': this.usuario['nombre_usuario'],
-        'documento': this.usuario['documento']
+        nombre_usuario: this.usuario['nombre_usuario'],
+        documento: this.usuario['documento']
       }
     });
 

@@ -17,10 +17,6 @@ export class AdministradorDatosUsuarioServicesProvider {
     return this.http.post(this.apiUrl+'/api/crud_administrador/modificar_usuario', {'usuario': usuario});
   }
 
-  public modificarContrasena(documento, contrasena) {
-    return this.http.post(this.apiUrl+'/api/crud_administrador/modificar_contrasena', {'documento': documento, 'contrasena': contrasena});
-  }
-
   public eliminarUsuario(usuario) {
     return this.http.post(this.apiUrl+'/api/crud_administrador/eliminar_usuario', {'usuario': usuario});
   }

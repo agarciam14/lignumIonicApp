@@ -54,7 +54,6 @@ export class DatosUsuarioPage implements OnInit {
     if (this.validarCamposVacios()) {
       this.mostrarAlerta('Campos vacios', 'Los campos usuario, documento, correo, imágen y tipo de usuario no deben de estar vacios.')
     } else {
-      console.log(this.usuario)
       this.administradorDatosUsuarioServicesProvider.modificarUsuario(this.usuario).subscribe(
         (data) => {
           if (data["tipo"] == "error_documento") {
@@ -92,8 +91,8 @@ export class DatosUsuarioPage implements OnInit {
     const modal = await this.modalController.create({
       component: CambiarContrasenaPage,
       componentProps: {
-        'usuario': this.usuario['nombre_usuario'],
-        'documento': this.usuario['documento']
+        nombre_usuario: this.usuario['nombre_usuario'],
+        documento: this.usuario['documento']
       }
     });
 
@@ -108,7 +107,8 @@ export class DatosUsuarioPage implements OnInit {
         } else if(data['tipo'] == 'error_documento') { 
           this.mostrarAlerta('Error en el documento', data['mensaje']);
         } else if(data['tipo'] == "aprobado") {
-          this.usuario = data['mensaje'];
+          this.mostrarAlerta(data['tipo'], data['mensaje']);
+          this.limpiar();
         } else {
           this.mostrarAlerta('Mensaje malformado', 'El paquete no se logro enviar bien.')
         }
@@ -135,7 +135,7 @@ export class DatosUsuarioPage implements OnInit {
   async confirmacionEliminar() {
     const alert = await this.alertController.create({
       header: 'Eliminar usuario',
-      message: '¿Está seguro que desea eliminar al usuario?' + this.usuario['nombre_usuario'],
+      message: '¿Está seguro que desea eliminar al usuario?\n' + this.usuario['nombre_usuario'],
       buttons: [
         {
           text: 'CONFIRMAR',
@@ -151,6 +151,16 @@ export class DatosUsuarioPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  limpiar() {
+    this.usuario = {
+      'nombre_usuario': '',
+      'documento': '',
+      'correo': '',
+      'tipo': '',
+      'imagen': ''
+    }
   }
 
 }
