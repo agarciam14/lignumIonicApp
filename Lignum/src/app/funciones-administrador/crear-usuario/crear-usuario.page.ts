@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { AdministradorCrearUsuarioServicesProvider } from '../../../providers/administrador-crear-usuario-service/administrador-crear-usuario-service';
 import { Router } from '@angular/router';
+
+import { ImagenModalPage } from '../../usuario/imagen-modal/imagen-modal.page';
 
 @Component({
   selector: 'app-crear-usuario',
@@ -20,7 +22,7 @@ export class CrearUsuarioPage implements OnInit {
     tipo: ""
   }
 
-  constructor(private router: Router, public administradorCrearUsuarioServicesProvider: AdministradorCrearUsuarioServicesProvider, public alertController: AlertController) { }
+  constructor(private router: Router, public administradorCrearUsuarioServicesProvider: AdministradorCrearUsuarioServicesProvider, public alertController: AlertController, private modalController: ModalController) { }
 
   ngOnInit() {
   }
@@ -68,8 +70,19 @@ export class CrearUsuarioPage implements OnInit {
     }
   }
 
-  modificarImagenModal() {
-    
+  async modificarImagenModal() {
+    const modal = await this.modalController.create({
+      component: ImagenModalPage,
+      componentProps: {
+        nombre_usuario: this.usuario['nombre_usuario'],
+        imagen: this.usuario['imagen']
+      }
+    });
+
+    await modal.present();
+
+    const { data } = await modal.onDidDismiss();
+    this.usuario['imagen'] = data['imagen'];
   }
 
   volver() {

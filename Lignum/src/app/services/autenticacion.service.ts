@@ -21,6 +21,9 @@ export class AutenticacionService {
     this.plt.ready().then(() => {
       this.verificarToken();
       this.verificarDocumento();
+      this.verificarTipo();
+      console.log(this.document_)
+      console.log(tipo)
     });
   }
 
@@ -29,12 +32,18 @@ export class AutenticacionService {
       return this.storage.set(TOKEN_KEY, 'papiUdLoQueEsEsUnJeque').then(res => {
         this.storage.set(documento_usuario, usuario['documento']);
         this.storage.set(tipo, usuario['tipo']);
+        
+        this.document_ = usuario['documento'];
+        this.tipo = usuario['tipo'];
         this.authenticationState.next(true);
       });
     } else if(usuario['tipo'] == "usuario_comun") {
       return this.storage.set(TOKEN_KEY, 'noGatoUdEsMasBienBasiquito').then(res => {
         this.storage.set(documento_usuario, usuario['documento']);
         this.storage.set(tipo, usuario['tipo']);
+        
+        this.document_ = usuario['documento'];
+        this.tipo = usuario['tipo'];
         this.authenticationState.next(true);
       });
     } else {
@@ -45,6 +54,10 @@ export class AutenticacionService {
 
   logout() {
     return this.storage.remove(TOKEN_KEY).then(() => {
+      this.storage.remove(documento_usuario);
+      this.storage.remove(tipo);
+      this.document_ = '';
+      this.tipo = '';
       this.authenticationState.next(false);
     });
   }

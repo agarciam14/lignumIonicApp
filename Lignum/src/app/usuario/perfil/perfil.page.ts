@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
-import { InfoUsuarioPerfilServicesProvider } from '../../providers/info-usuario-perfil-service/info-usuario-perfil-service';
-import { AutenticacionService } from '../services/autenticacion.service';
+import { InfoUsuarioPerfilServicesProvider } from '../../../providers/info-usuario-perfil-service/info-usuario-perfil-service';
+import { AutenticacionService } from '../../services/autenticacion.service';
 
 import { CambiarContrasenaPage } from '../cambiar-contrasena/cambiar-contrasena.page';
+import { ImagenModalPage } from '../../usuario/imagen-modal/imagen-modal.page';
 
 @Component({
   selector: 'app-perfil',
@@ -24,7 +25,7 @@ export class PerfilPage implements OnInit {
   constructor(private autenticacionService: AutenticacionService, private infoUsuarioPerfilServicesProvider: InfoUsuarioPerfilServicesProvider, private route: ActivatedRoute, private router: Router, public alertController: AlertController, private modalController: ModalController) {
     this.route.queryParams.subscribe(params => {
       this.usuario['documento'] = this.autenticacionService.document_;
-
+      
       this.traerInformacionUsuario();
     });
   }
@@ -83,8 +84,19 @@ export class PerfilPage implements OnInit {
     }
   }
 
-  modificarImagenModal() {
+  async modificarImagenModal() {
+    const modal = await this.modalController.create({
+      component: ImagenModalPage,
+      componentProps: {
+        nombre_usuario: this.usuario['nombre_usuario'],
+        imagen: this.usuario['imagen']
+      }
+    });
 
+    await modal.present();
+
+    const { data } = await modal.onDidDismiss();
+    this.usuario['imagen'] = data['imagen'];
   }
 
   async cambiarContrasenaModal() {
