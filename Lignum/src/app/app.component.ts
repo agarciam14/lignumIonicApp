@@ -35,7 +35,7 @@ export class AppComponent {
           if(state) {
             this.loged = true;
             this.tipo = this.autenticacionService.tipo;
-            this.router.navigate(['lista-usuarios']);
+            this.router.navigate(['inicio']);
           } else {
             this.loged = false;
             this.router.navigate(['login']);

@@ -1,0 +1,31 @@
+
+<ion-content>
+  <ion-card-header>
+    <ion-card-title class="ion-text-center">Mis puntos</ion-card-title>
+    <ion-button color="dark" class="ion-button-center" expand="block">10000000</ion-button>
+  </ion-card-header>
+    <ion-card class="welcome-card">
+      <img src="/assets/shapes.svg" alt="" />
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Mis Metas</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <ion-list lines="none">
+      <ion-item (click)="irInformacionRutas()">
+        <ion-icon slot="start" color="medium" name="bicycle"></ion-icon>
+        <ion-label>Información Ciclo rutas</ion-label>
+      </ion-item>
+      <ion-item (click)="irInformacionVias()">
+        <ion-icon slot="start" color="medium" name="bicycle"></ion-icon>
+        <ion-label>Información Ciclo vias</ion-label>
+      </ion-item>
+      <ion-item >
+        <ion-icon slot="start" color="medium" name="book"></ion-icon>
+        <ion-label>Metas</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" color="medium" name="grid"></ion-icon>
+        <ion-label>Sobre Lignum</ion-label>
+      </ion-item>
+    </ion-list>
+</ion-content>

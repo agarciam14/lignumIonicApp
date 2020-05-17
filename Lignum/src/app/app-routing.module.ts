@@ -41,6 +41,16 @@ const routes: Routes = [
     loadChildren: () => import('./ciclo-rutas/ciclo-rutas.module').then( m => m.CicloRutasPageModule)
   },
   {
+    path: 'maps',
+    canActivate: [AuthGuardService],
+    loadChildren: () => import('./maps/maps-routing.module').then( m => m.MapsPageRoutingModule)
+  },
+  {
+    path: 'arboles',
+    canActivate: [AuthGuardService],
+    loadChildren: () => import('./arboles/arboles-routing.module').then( m => m.ArbolesPageRoutingModule)
+  },
+  {
     path: 'info-rutas',
     canActivate: [AuthGuardService],
     loadChildren: () => import('./info-rutas/info-rutas.module').then( m => m.InfoRutasPageModule)
@@ -49,7 +59,16 @@ const routes: Routes = [
     path: 'perfil',
     canActivate: [AuthGuardService],
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
-  }
+  },
+  {
+    path: 'inicio',
+    canActivate: [AuthGuardService],
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
+    path: 'info-ciclovias',
+    loadChildren: () => import('./info-ciclovias/info-ciclovias.module').then( m => m.InfoCicloviasPageModule)
+  },
 ];
 @NgModule({
   imports: [
