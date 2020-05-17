@@ -1,0 +1,60 @@
+<ion-header>
+  <div class="centrado">
+    <br/>
+    <img src="" width="20%"/>
+    <h3>Crear ciclovia</h3>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div padding>
+            <ion-list insert>
+              <ion-label>Nombre de ciclovia</ion-label>
+              <ion-item>
+                <ion-input type="text" placeholder="Nombre de la ciclovia" [(ngModel)]="ciclovia['nombre_ciclovia']" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+              <ion-label>Dia</ion-label>
+              <ion-item>
+                <ion-input type="text" placeholder="Dia" [(ngModel)]="ciclovia['dia']" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+              <ion-label>Hora inicio</ion-label>
+              <ion-item>
+                <ion-input type="hour" placeholder="Hora" [(ngModel)]="ciclovia['hora_inicio']" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+              <ion-label>Hora fin</ion-label>
+              <ion-item>
+                <ion-input type="hour" placeholder="Hora" [(ngModel)]="ciclovia['hora_fin']" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+              <ion-label>Punto inicial latitud</ion-label>
+              <ion-item>
+                <ion-input type="decimal" placeholder="latitud" [(ngModel)]="ciclovia['ruta'['inicio'['lat']]]" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+               <ion-label>Punto inicial longitud</ion-label>
+              <ion-item>
+                <ion-input type="decimal" placeholder="longitud" [(ngModel)]="ciclovia['ruta'['inicio'['log']]]" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+              <ion-label>Punto final latitud</ion-label>
+              <ion-item>
+                <ion-input type="decimal" placeholder="latitud" [(ngModel)]="ciclovia['ruta'['fin'['lat']]]" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+               <ion-label>Punto final longitud</ion-label>
+              <ion-item>
+                <ion-input type="decimal" placeholder="longitud" [(ngModel)]="ciclovia['ruta'['fin'['log']]]" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+            </ion-list>
+          </div>
+
+          <div padding class="centrado">
+            <ion-button expand="block" type="submit" (click)="crearCiclovia()">CREAR</ion-button>
+            <ion-item-divider></ion-item-divider>
+            <ion-button (click)="volver()" >VOLVER</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

@@ -1,3 +1,4 @@
+import { AdministradorCrearCicloviaServicesProvider } from './../providers/administrador-crear-ciclovia-service.ts/administrador-crear-ciclovia-service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -22,6 +23,7 @@ import { AdministradorDatosUsuarioServicesProvider } from '../providers/administ
 import { AdministradorListarUsuariosServicesProvider } from '../providers/administrador-listar-usuarios-service/administrador-listar-usuarios-service';
 import { InfoUsuarioPerfilServicesProvider } from '../providers/info-usuario-perfil-service/info-usuario-perfil-service';
 import { ConsultaApiRutasServicesProvider } from '../providers/consulta-api-rutas-service/consulta-api-rutas-service'; 
+import { ListarCicloviasServicesProvider } from '../providers/listar-ciclovias-service/listar-ciclovias-service';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { ConsultaApiRutasServicesProvider } from '../providers/consulta-api-ruta
     AdministradorCrearUsuarioServicesProvider,
     AdministradorDatosUsuarioServicesProvider,
     AdministradorListarUsuariosServicesProvider,
+    AdministradorCrearCicloviaServicesProvider,
     InfoUsuarioPerfilServicesProvider,
+    ListarCicloviasServicesProvider,
     ConsultaApiRutasServicesProvider
   ],
   bootstrap: [AppComponent],

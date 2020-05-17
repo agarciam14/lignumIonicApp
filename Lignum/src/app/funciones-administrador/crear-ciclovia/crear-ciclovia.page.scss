@@ -1,0 +1,20 @@
+.centrado{
+    text-align: center;
+}
+
+ion-header {
+    background: #28a745;
+}
+
+$white-color: #fff;
+$height100: 100%;
+
+ion-grid {
+    width:100%;
+    height: $height100;
+    background: #dfdfdf;
+}
+
+ion-row {
+    height: $height100;
+}

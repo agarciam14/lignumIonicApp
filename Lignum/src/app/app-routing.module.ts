@@ -69,6 +69,10 @@ const routes: Routes = [
     path: 'info-ciclovias',
     loadChildren: () => import('./info-ciclovias/info-ciclovias.module').then( m => m.InfoCicloviasPageModule)
   },
+  {
+    path: 'crear-ciclovia',
+    loadChildren: () => import('./funciones-administrador/crear-ciclovia/crear-ciclovia.module').then( m => m.CrearCicloviaPageModule)
+  },
 ];
 @NgModule({
   imports: [

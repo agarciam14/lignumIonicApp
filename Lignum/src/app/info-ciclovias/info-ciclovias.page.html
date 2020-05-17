@@ -1,9 +1,15 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>info-Ciclovias</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <ion-card-header>
+    <ion-card-title class="ion-text-center">Información de ciclo vias</ion-card-title>
+  </ion-card-header>
+    <ion-list *ngFor="let ciclovia of ciclovias">
+      <div class="ciclovias">
+        <ion-item-sliding #sliding>
+          <ion-item>
+            <ion-icon slot="start" color="medium" name="bicycle"></ion-icon>
+            <h5 class="nombre">{{ ciclovia["nombre"] }}</h5>
+          </ion-item>
+        </ion-item-sliding>
+      </div>
+    </ion-list>
 </ion-content>
