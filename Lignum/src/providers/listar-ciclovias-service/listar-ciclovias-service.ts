@@ -13,7 +13,7 @@ export class ListarCicloviasServicesProvider{
   apiUrl = this.providerSettingsProvider.getMainUrl();
 
   public traerCiclovias() {
-    return this.http.get(this.apiUrl+'/api/crud_administrador/traer_ciclovias');
+    return this.http.get(this.apiUrl+'/api/ciclovias/traer_ciclovias');
   }
 
 }

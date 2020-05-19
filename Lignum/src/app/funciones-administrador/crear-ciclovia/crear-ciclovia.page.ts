@@ -53,7 +53,7 @@ export class CrearCicloviaPage implements OnInit {
 
   validarCamposVacios() {
     if (this.ciclovia['nombre_ciclovia'] == "" || this.ciclovia['dia'] == "" || this.ciclovia['hora_inicio'] == "" || this.ciclovia['hora_fin'] == "" || 
-        this.ciclovia['ruta'['inicio'['lat']]] == "" || this.ciclovia['ruta'['inicio'['log']]] == "" || this.ciclovia['ruta'['fin'['lat']]] == "" || this.ciclovia['ruta'['fin'['log']]] == "") {
+        this.ciclovia['ruta']['inicio']['lat'] == "" || this.ciclovia['ruta']['inicio']['log'] == "" || this.ciclovia['ruta']['fin']['lat'] == "" || this.ciclovia['ruta']['fin']['log'] == "") {
       return true;
     } else {
       return false;

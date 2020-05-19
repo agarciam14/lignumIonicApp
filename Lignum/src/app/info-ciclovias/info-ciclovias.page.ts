@@ -28,6 +28,7 @@ export class InfoCicloviasPage implements OnInit {
           this.mostrarAlerta('Error en el servidor', data['mensaje']);
         } else if(data['tipo'] == "aprobado") {
           this.ciclovias = data['mensaje'];
+          console.log(this.ciclovias);
         } else {
           this.mostrarAlerta('Mensaje malformado', 'El paquete no se logro enviar bien.')
         }
