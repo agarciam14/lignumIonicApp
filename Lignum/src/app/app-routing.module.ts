@@ -49,6 +49,10 @@ const routes: Routes = [
     path: 'perfil',
     canActivate: [AuthGuardService],
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'crear-meta',
+    loadChildren: () => import('./funciones-administrador/crear-meta/crear-meta.module').then( m => m.CrearMetaPageModule)
   }
 ];
 @NgModule({

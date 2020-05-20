@@ -1,0 +1,48 @@
+<ion-header>
+  <div class="centrado">
+    <br/>
+    <img src="" width="20%"/>
+    <h3>Crear Meta</h3>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div padding>
+            <ion-list insert>
+              <ion-label>Nombre de Meta</ion-label>
+              <ion-item>
+                <ion-input type="text" placeholder="Nombre de meta" [(ngModel)]="meta['nombre_meta']" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+              <ion-label>Objetivo</ion-label>
+              <ion-item>
+                <ion-input type="number" placeholder="Objetivo" [(ngModel)]="meta['objetivo']" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+              <ion-label>Descripcion</ion-label>
+              <ion-item>
+                <ion-input type="text" placeholder="Descripcion" [(ngModel)]="meta['descripcion']" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+              <ion-label>Puntaje</ion-label>
+              <ion-item>
+                <ion-input type="number" placeholder="Puntaje" [(ngModel)]="meta['puntaje']" [ngModelOptions]="{standalone: true}" required></ion-input>
+              </ion-item>
+              <ion-label>Dependencias</ion-label>
+              <ion-item>
+                <ion-input type="text" placeholder="Dependencias" [(ngModel)]="meta['dependencias']" [ngModelOptions]="{standalone: true}"></ion-input>
+              </ion-item>
+            </ion-list>
+          </div>
+
+          <div padding class="centrado">
+            <ion-button expand="block" type="submit" (click)="crearMeta()">CREAR</ion-button>
+            <ion-item-divider></ion-item-divider>
+            <ion-button (click)="volver()" >VOLVER</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

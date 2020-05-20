@@ -22,7 +22,7 @@ import { AdministradorDatosUsuarioServicesProvider } from '../providers/administ
 import { AdministradorListarUsuariosServicesProvider } from '../providers/administrador-listar-usuarios-service/administrador-listar-usuarios-service';
 import { InfoUsuarioPerfilServicesProvider } from '../providers/info-usuario-perfil-service/info-usuario-perfil-service';
 import { ConsultaApiRutasServicesProvider } from '../providers/consulta-api-rutas-service/consulta-api-rutas-service'; 
-
+import { AdministradorCrearMetaServicesProvider } from '../providers/administrador-crear-meta-service/administrador-crear-meta-service'
 
 @NgModule({
   declarations: [
@@ -48,7 +48,8 @@ import { ConsultaApiRutasServicesProvider } from '../providers/consulta-api-ruta
     AdministradorDatosUsuarioServicesProvider,
     AdministradorListarUsuariosServicesProvider,
     InfoUsuarioPerfilServicesProvider,
-    ConsultaApiRutasServicesProvider
+    ConsultaApiRutasServicesProvider,
+    AdministradorCrearMetaServicesProvider
   ],
   bootstrap: [AppComponent],
 })
