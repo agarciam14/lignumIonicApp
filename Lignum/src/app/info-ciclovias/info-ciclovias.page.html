@@ -5,7 +5,7 @@
     <ion-list *ngFor="let ciclovia of ciclovias">
       <div class="ciclovias">
         <ion-item-sliding #sliding>
-          <ion-item>
+          <ion-item (click)="imprimirPunto(ciclovia)">
             <ion-icon slot="start" color="medium" name="bicycle"></ion-icon>
             <h5 class="nombre_ciclovia">{{ ciclovia["nombre_ciclovia"] }}</h5>
           </ion-item>
