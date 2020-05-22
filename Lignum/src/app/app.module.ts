@@ -25,6 +25,7 @@ import { InfoUsuarioPerfilServicesProvider } from '../providers/info-usuario-per
 import { ConsultaApiRutasServicesProvider } from '../providers/consulta-api-rutas-service/consulta-api-rutas-service'; 
 import { ListarCicloviasServicesProvider } from '../providers/listar-ciclovias-service/listar-ciclovias-service';
 
+import { AdministradorCrearMetaServicesProvider } from '../providers/administrador-crear-meta-service/administrador-crear-meta-service'
 
 @NgModule({
   declarations: [
@@ -52,7 +53,9 @@ import { ListarCicloviasServicesProvider } from '../providers/listar-ciclovias-s
     AdministradorCrearCicloviaServicesProvider,
     InfoUsuarioPerfilServicesProvider,
     ListarCicloviasServicesProvider,
-    ConsultaApiRutasServicesProvider
+    ConsultaApiRutasServicesProvider,
+    ConsultaApiRutasServicesProvider,
+    AdministradorCrearMetaServicesProvider
   ],
   bootstrap: [AppComponent],
 })

@@ -73,6 +73,9 @@ const routes: Routes = [
     path: 'crear-ciclovia',
     loadChildren: () => import('./funciones-administrador/crear-ciclovia/crear-ciclovia.module').then( m => m.CrearCicloviaPageModule)
   },
+    path: 'crear-meta',
+    loadChildren: () => import('./funciones-administrador/crear-meta/crear-meta.module').then( m => m.CrearMetaPageModule)
+  }
 ];
 @NgModule({
   imports: [
