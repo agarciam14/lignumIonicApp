@@ -22,6 +22,7 @@ import { AdministradorCrearUsuarioServicesProvider } from '../providers/administ
 import { AdministradorDatosUsuarioServicesProvider } from '../providers/administrador-datos-usuario-service/administrador-datos-usuario-service';
 import { AdministradorListarUsuariosServicesProvider } from '../providers/administrador-listar-usuarios-service/administrador-listar-usuarios-service';
 import { InfoUsuarioPerfilServicesProvider } from '../providers/info-usuario-perfil-service/info-usuario-perfil-service';
+import { InfoUsuarioHomeServicesProvider } from '../providers/info-usuario-home-service/info-usuario-home-service'
 import { ConsultaApiRutasServicesProvider } from '../providers/consulta-api-rutas-service/consulta-api-rutas-service'; 
 import { ListarCicloviasServicesProvider } from '../providers/listar-ciclovias-service/listar-ciclovias-service';
 
@@ -52,6 +53,7 @@ import { AdministradorCrearMetaServicesProvider } from '../providers/administrad
     AdministradorListarUsuariosServicesProvider,
     AdministradorCrearCicloviaServicesProvider,
     InfoUsuarioPerfilServicesProvider,
+    InfoUsuarioHomeServicesProvider,
     ListarCicloviasServicesProvider,
     ConsultaApiRutasServicesProvider,
     ConsultaApiRutasServicesProvider,

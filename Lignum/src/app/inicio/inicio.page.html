@@ -1,14 +1,32 @@
 
+<ion-header>
+  <div class="centrado">
+    <br/>
+    <img src="" width="20%"/>
+    <h3>LIGNUM</h3>
+  </div>
+</ion-header>
 <ion-content>
-  <ion-card-header>
-    <ion-card-title class="ion-text-center">Mis puntos</ion-card-title>
-    <ion-button color="dark" class="ion-button-center" expand="block">10000000</ion-button>
-  </ion-card-header>
     <ion-card class="welcome-card">
       <img src="/assets/shapes.svg" alt="" />
       <ion-card-header>
         <ion-card-title class="ion-text-center">Mis Metas</ion-card-title>
       </ion-card-header>
+    </ion-card>
+    <ion-card class="points">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">{{usuario['nombre_usuario']}}</ion-card-title>
+      </ion-card-header>
+      <ion-item>
+        <ion-icon slot="start" color="medium" name="medal"></ion-icon>
+        <ion-label>Mis puntos</ion-label>
+        <ion-label >{{usuario['puntaje']}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" color="medium" name="walk"></ion-icon>
+        <ion-label>Kms Recorridos</ion-label>
+        <ion-label >{{usuario['recorrido']}}</ion-label>
+      </ion-item>
     </ion-card>
     <ion-list lines="none">
       <ion-item (click)="irInformacionRutas()">

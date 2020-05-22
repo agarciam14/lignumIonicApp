@@ -30,12 +30,16 @@ export class AutenticacionService {
         this.storage.set(documento_usuario, usuario['documento']);
         this.storage.set(tipo, usuario['tipo']);
         this.authenticationState.next(true);
+        this.document_ = usuario['documento'];
+        this.tipo = usuario['tipo'];
       });
     } else if(usuario['tipo'] == "usuario_comun") {
       return this.storage.set(TOKEN_KEY, 'noGatoUdEsMasBienBasiquito').then(res => {
         this.storage.set(documento_usuario, usuario['documento']);
         this.storage.set(tipo, usuario['tipo']);
         this.authenticationState.next(true);
+        this.document_ = usuario['documento'];
+        this.tipo = usuario['tipo'];
       });
     } else {
       return this.authenticationState.next(false);

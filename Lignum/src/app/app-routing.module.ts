@@ -9,6 +9,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'maps',
+    loadChildren: () => import('./maps/maps.module').then( m => m.MapsPageModule)
+  },
+  {
     path: 'registro-usuario-nuevo',
     loadChildren: () => import('./ingreso/registro-usuario-nuevo/registro-usuario-nuevo.module').then( m => m.RegistroUsuarioNuevoPageModule)
   },
@@ -73,6 +77,7 @@ const routes: Routes = [
     path: 'crear-ciclovia',
     loadChildren: () => import('./funciones-administrador/crear-ciclovia/crear-ciclovia.module').then( m => m.CrearCicloviaPageModule)
   },
+  {
     path: 'crear-meta',
     loadChildren: () => import('./funciones-administrador/crear-meta/crear-meta.module').then( m => m.CrearMetaPageModule)
   }
