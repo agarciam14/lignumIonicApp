@@ -1,0 +1,17 @@
+<ion-content>
+  <ion-card-header>
+    <ion-card-title class="ion-text-center">Ranking</ion-card-title>
+  </ion-card-header>
+    <ion-list *ngFor="let rank of ranking; let acum=index">
+      <div class="ranking">
+        <ion-item-sliding #sliding>
+          <ion-item>
+            <ion-icon slot="start" color="medium" name="medal" *ngIf="acum<3"></ion-icon>
+            <ion-icon slot="start" color="medium" name="ribbon" *ngIf="acum>=3"></ion-icon>
+            <h5 class="nombre_usuario">{{ rank["nombre_usuario"] }} <br/> Puntos: {{ rank["puntos"] }}</h5>
+          </ion-item>
+          
+        </ion-item-sliding>
+      </div>
+    </ion-list>
+</ion-content>

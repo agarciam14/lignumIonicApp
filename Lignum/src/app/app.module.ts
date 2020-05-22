@@ -24,6 +24,7 @@ import { AdministradorListarUsuariosServicesProvider } from '../providers/admini
 import { InfoUsuarioPerfilServicesProvider } from '../providers/info-usuario-perfil-service/info-usuario-perfil-service';
 import { ConsultaApiRutasServicesProvider } from '../providers/consulta-api-rutas-service/consulta-api-rutas-service'; 
 import { ListarCicloviasServicesProvider } from '../providers/listar-ciclovias-service/listar-ciclovias-service';
+import { RankingServicesProvider } from '../providers/ranking-service/ranking-service';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ListarCicloviasServicesProvider } from '../providers/listar-ciclovias-s
     AdministradorCrearCicloviaServicesProvider,
     InfoUsuarioPerfilServicesProvider,
     ListarCicloviasServicesProvider,
-    ConsultaApiRutasServicesProvider
+    ConsultaApiRutasServicesProvider,
+    RankingServicesProvider
   ],
   bootstrap: [AppComponent],
 })
