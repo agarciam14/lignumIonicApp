@@ -31,6 +31,8 @@ export class CrearMetaPage implements OnInit {
         (data) => {
           if (data["tipo"] == "error_nombre_meta") {
             this.mostrarAlerta('Meta existente', data['mensaje']);
+          }else if (data["tipo"] == "aprobado") {
+            this.mostrarAlerta('Aprobado', data['mensaje']);
           }
         }, 
         (error) =>{
