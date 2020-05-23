@@ -1,0 +1,104 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+  font-family: Open Sans, Arial, Helvetica;
+background: radial-gradient(ellipse at center, rgba(204,207,212,1) 0%,rgba(112,121,134,1) 100%);
+}
+.title {
+  font-size: 80px;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 80px;
+  text-shadow: 0 5px 30px rgba(41, 77, 128,0.4);
+  font-weight: 300;
+  letter-spacing: 40px;
+}
+.lead-master {
+  padding: 30px 0 0;
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+  z-index: 3;
+}
+.lead-master .leader {
+	width: 32%;
+	display: inline-block;
+	background: #fff;
+	box-shadow: 0 15px 60px rgba(41, 77, 128,0.3);
+}
+.lead-master .leader .left {
+	width: 75px;
+  float: left;
+  padding: 21px;
+	background: radial-gradient(ellipse farthest-corner at right bottom, #ffffff 0%, #e2e2e2 8%, #a7a7a7 30%, #8c8c8c 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #e0e0e0 8%, #cccccc 25%, #464646 62.5%, #525252 100%);
+  margin-right: 10px;
+}
+.lead-master .leader .left .fa {
+	font-size: 75px;
+	color: #fff;
+	position: relative;
+}
+.lead-master .leader:first-child .left {
+	background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+}
+.lead-master .leader:last-child .left {
+	background: radial-gradient(ellipse farthest-corner at right bottom, #fe7e37 0%, #fd7c31 8%, #9f5928 30%, #8a5d2f 40%, transparent 80%), 
+				radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #ffe2ac 8%, #d18c64 25%, #5d411f 62.5%, #5d3e1f 100%);
+}
+.lead-master .leader:first-child .left .fa:after {
+	content: "1";
+}
+.lead-master .leader:last-child .left .fa:after {
+	content: "3";
+}
+.lead-master .leader .left .fa:after {
+    content: "2";
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 10px;
+    left: 43%;
+    margin-left: -16px;
+    z-index: 2;
+    color: #333;
+    padding: 5px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 21px;
+}
+.lead-master .leader .right {
+	float: left;
+	padding: 16px 20px 0;
+}
+.lead-master .leader .score {
+	font-size: 15px;
+	font-weight: bold;
+	letter-spacing: 0px;
+  color: #464c54;
+}
+.lead-master .user {
+	transform: translateY(-12px);
+}
+.lead-master .user a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #1e76d4;
+}
+.lead-master .user img {
+	border-radius: 50%;
+	margin-right: 5px;
+  transform: translateY(12px);
+}
+
+ion-card-header {
+    background: #28a745;
+}

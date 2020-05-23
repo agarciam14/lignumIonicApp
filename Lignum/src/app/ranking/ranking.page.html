@@ -2,16 +2,49 @@
   <ion-card-header>
     <ion-card-title class="ion-text-center">Ranking</ion-card-title>
   </ion-card-header>
+    <div class="lead-master">
+        <div class="leader">
+            <div class="left"><i class="fa fa-trophy" aria-hidden="true"></i></div>
+            <div class="right">
+                <div class="user">
+                    <a>{{ ranking[0]["nombre_usuario"] }}</a>
+                </div>
+                <div class="score">{{ ranking[0]["puntos"] }}</div>
+            </div>
+        </div>
+        <div class="leader">
+            <div class="left"><i class="fa fa-trophy" aria-hidden="true"></i></div>
+            <div class="right">
+                <div class="user">
+                    <a>{{ ranking[1]["nombre_usuario"] }}</a>
+                </div>
+                <div class="score">{{ ranking[1]["puntos"] }}</div>
+            </div>
+        </div>
+        <div class="leader">
+            <div class="left"><i class="fa fa-trophy" aria-hidden="true"></i></div>
+            <div class="right">
+                <div class="user">
+                    <a  target="_blank">{{ ranking[2]["nombre_usuario"] }}</a>
+                </div>
+                <div class="score">{{ ranking[2]["puntos"] }}</div>
+            </div>
+        </div>
+    </div>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://use.fontawesome.com/f6be8ca97c.js'></script>
     <ion-list *ngFor="let rank of ranking; let acum=index">
       <div class="ranking">
         <ion-item-sliding #sliding>
-          <ion-item>
-            <ion-icon slot="start" color="medium" name="medal" *ngIf="acum<3"></ion-icon>
-            <ion-icon slot="start" color="medium" name="ribbon" *ngIf="acum>=3"></ion-icon>
-            <h5 class="nombre_usuario">{{ rank["nombre_usuario"] }} <br/> Puntos: {{ rank["puntos"] }}</h5>
+          <ion-item *ngIf="acum>=3">
+            <ion-icon slot="start" color="medium" name="ribbon"></ion-icon>
+            <h5 class="nombre_usuario">Usuario: {{ rank["nombre_usuario"] }} <br/> Puntos: {{ rank["puntos"] }}</h5>
           </ion-item>
-          
+
         </ion-item-sliding>
       </div>
     </ion-list>
 </ion-content>
+
+
+

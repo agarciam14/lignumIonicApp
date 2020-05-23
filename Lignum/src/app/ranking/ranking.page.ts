@@ -10,12 +10,23 @@ import { RankingServicesProvider } from '../../providers/ranking-service/ranking
 })
 export class RankingPage implements OnInit {
 
-  ranking = [];
+  ranking = [{
+    "nombre_usuario": "",
+    "puntos": ""
+  },
+  {
+    "nombre_usuario": "",
+    "puntos": ""
+  },
+  {
+    "nombre_usuario": "",
+    "puntos": ""
+  }
+  ];
+
 
   constructor(private route: ActivatedRoute, public router: Router, public RankingServicesProvider: RankingServicesProvider, public alertController: AlertController) {
-    this.route.queryParams.subscribe(params => {
-      this.traerRanking();
-    });
+    this.traerRanking();
    }
 
   ngOnInit() {
@@ -28,6 +39,7 @@ export class RankingPage implements OnInit {
           this.mostrarAlerta('Error en el servidor', data['mensaje']);
         } else if(data['tipo'] == "aprobado") {
           this.ranking = data['mensaje'];
+          console.log(this.ranking[0]["nombre_usuario"]);
         } else {
           this.mostrarAlerta('Mensaje malformado', 'El paquete no se logro enviar bien.')
         }
@@ -36,7 +48,6 @@ export class RankingPage implements OnInit {
       }
     );
   }
-
 
   async mostrarAlerta(titulo, mensaje) {
     const alert = await this.alertController.create({
@@ -47,5 +58,6 @@ export class RankingPage implements OnInit {
 
     await alert.present();
   }
+
 
 }
