@@ -34,32 +34,37 @@ background: radial-gradient(ellipse at center, rgba(204,207,212,1) 0%,rgba(112,1
 	box-shadow: 0 15px 60px rgba(41, 77, 128,0.3);
 }
 .lead-master .leader .left {
-	width: 75px;
+    width: 90px;
+    height: 30px;
   float: center;
   padding: 21px;
-	background: radial-gradient(ellipse farthest-corner at right bottom, #ffffff 0%, #e2e2e2 8%, #a7a7a7 30%, #8c8c8c 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #e0e0e0 8%, #cccccc 25%, #464646 62.5%, #525252 100%);
-}
+  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);}
 .lead-master .leader .left .fa {
 	font-size: 75px;
 	color: #fff;
 	position: relative;
 }
+
 .lead-master .leader:first-child .left {
-	background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
-                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+    background: radial-gradient(ellipse farthest-corner at right bottom, #ffffff 0%, #e2e2e2 8%, #a7a7a7 30%, #8c8c8c 40%, transparent 80%), 
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #e0e0e0 8%, #cccccc 25%, #464646 62.5%, #525252 100%);
+    height: 70px;
+
 }
 .lead-master .leader:last-child .left {
 	background: radial-gradient(ellipse farthest-corner at right bottom, #fe7e37 0%, #fd7c31 8%, #9f5928 30%, #8a5d2f 40%, transparent 80%), 
-				radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #ffe2ac 8%, #d18c64 25%, #5d411f 62.5%, #5d3e1f 100%);
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #ffe2ac 8%, #d18c64 25%, #5d411f 62.5%, #5d3e1f 100%);
+    height: 100px;
 }
 .lead-master .leader:first-child .left .fa:after {
-	content: "1";
+    content: "2";
 }
 .lead-master .leader:last-child .left .fa:after {
-	content: "3";
+    content: "3";
+    
 }
 .lead-master .leader .left .fa:after {
-    content: "2";
+    content: "1";
     width: 25px;
     height: 25px;
     position: absolute;
@@ -74,7 +79,7 @@ background: radial-gradient(ellipse at center, rgba(204,207,212,1) 0%,rgba(112,1
 }
 .lead-master .leader .right {
 	float: left;
-	padding: 16px 20px 0;
+	padding: 5px 20px 0;
 }
 .lead-master .leader .score {
 	font-size: 12px;
