@@ -16,4 +16,8 @@ export class InfoUsuarioHomeServicesProvider {
   public modificarRecorrido(usuario, puntos){
     return this.http.post(this.apiUrl+'/api/usuario_general/modificar_recorrido', {'usuario': usuario, 'puntos':puntos});
   }
+
+  public evaluarMetas(usuario){
+    return this.http.post(this.apiUrl+'/api/usuario_general/evaluar_metas', {'usuario': usuario});
+  }
 }

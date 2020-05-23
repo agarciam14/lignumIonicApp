@@ -16,6 +16,8 @@ export class InicioPage implements OnInit {
     'documento': '',
     'puntaje': 0,
     'recorrido': 0,
+    'tareas_actuales':[],
+    'tareas_realizadas':[]
   }
 
   constructor(public alertController: AlertController,private infoUsuarioHomeServicesProvider: InfoUsuarioHomeServicesProvider,private autenticacionService: AutenticacionService, private route: ActivatedRoute, private router: Router) { 

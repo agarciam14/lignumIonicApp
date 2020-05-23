@@ -37,7 +37,7 @@ export class MapsPage {
   }
   options = {
     enableHighAccuracy: true,
-    timeout: 30000,
+    timeout: 8000,
     maximumAge: 7000,
   };
 
@@ -64,6 +64,7 @@ export class MapsPage {
     this.subscription = this.geolocation.watchPosition(this.options).subscribe(resultado => {
       this.currentLocation.lat = resultado.coords.latitude;
       this.currentLocation.lng = resultado.coords.longitude;
+      console.log({'lat': resultado.coords.latitude, 'long': resultado.coords.longitude});
       this.logs.push({'lat': resultado.coords.latitude, 'long': resultado.coords.longitude});
       if (this.directionForm.value['destination']!=''){
         this.calculateAndDisplayRoute(this.directionForm.value);
@@ -85,10 +86,10 @@ export class MapsPage {
 
   }
 
-  ionViewDidLeave(): void {
-    let distancia= this.usuario['recorrido'];
+  ionViewWillLeave(): void {
     this.subscription.unsubscribe();
     this.modificarRecorrido();
+    this.evaluarMetas();
   }
 
   traerInformacionUsuario() {
@@ -101,6 +102,26 @@ export class MapsPage {
         } else if(data['tipo'] == "aprobado") {
           this.usuario = data['mensaje'];
         } else {
+          this.mostrarAlerta('Mensaje malformado', 'El paquete no se logro enviar bien.')
+        }
+      }, (error) => {
+        this.mostrarAlerta('Error conexion', 'Ocurrio un error, revisa tu conexion a internet');
+      }
+    );
+  }
+
+  evaluarMetas(){
+    this.infoUsuarioHomeServicesProvider.evaluarMetas(this.usuario).subscribe(
+      (data) => {
+        if(data['tipo'] == 'error_interno') {
+          this.mostrarAlerta('Error en el servidor', data['mensaje']);
+        } else if(data['tipo'] == 'error_documento') { 
+          this.mostrarAlerta('Error en el documento', data['mensaje']);
+        } else if(data['tipo'] == "aprobado") {
+
+        } else if (data['tipo'] == "exito"){
+          this.mostrarAlerta('Meta Completada con exito', data['mensaje']);
+        }else {
           this.mostrarAlerta('Mensaje malformado', 'El paquete no se logro enviar bien.')
         }
       }, (error) => {
@@ -124,6 +145,7 @@ export class MapsPage {
           } else if (data["tipo"] == "error_interno") {
             this.mostrarAlerta('Error interno', data['mensaje']);
           } else if (data["tipo"] == "aprobado") {
+            this.traerInformacionUsuario();
             this.mostrarAlerta('Aprobado', data['mensaje']);
           }
         }, 
