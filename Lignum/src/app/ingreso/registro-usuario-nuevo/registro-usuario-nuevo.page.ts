@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { RegistroUsuarioNuevoServicesProvider } from '../../../providers/registro-usuario-nuevo-service/registro-usuario-nuevo-service';
+
+import { ImagenModalPage } from '../../usuario/imagen-modal/imagen-modal.page';
 
 @Component({
   selector: 'app-registro-usuario-nuevo',
@@ -19,7 +21,7 @@ export class RegistroUsuarioNuevoPage implements OnInit {
     confirmar_contrasena: ""
   }
 
-  constructor( private router: Router, public registroUsuarioNuevoServicesProvider: RegistroUsuarioNuevoServicesProvider, public alertController: AlertController) { }
+  constructor(private modalController: ModalController, private router: Router, public registroUsuarioNuevoServicesProvider: RegistroUsuarioNuevoServicesProvider, public alertController: AlertController) { }
 
   ngOnInit() {
   }
@@ -67,8 +69,19 @@ export class RegistroUsuarioNuevoPage implements OnInit {
     }
   }
 
-  modificarImagenModal() {
-    
+  async modificarImagenModal() {
+    const modal = await this.modalController.create({
+      component: ImagenModalPage,
+      componentProps: {
+        nombre_usuario: this.usuario['nombre_usuario'],
+        imagen: this.usuario['imagen']
+      }
+    });
+
+    await modal.present();
+
+    const { data } = await modal.onDidDismiss();
+    this.usuario['imagen'] = data['imagen'];
   }
 
   volver() {

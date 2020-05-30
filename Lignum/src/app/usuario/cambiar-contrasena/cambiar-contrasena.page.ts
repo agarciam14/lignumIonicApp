@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController, AlertController } from '@ionic/angular';
-import { InfoUsuarioPerfilServicesProvider } from '../../providers/info-usuario-perfil-service/info-usuario-perfil-service';
+import { InfoUsuarioPerfilServicesProvider } from '../../../providers/info-usuario-perfil-service/info-usuario-perfil-service';
 
 @Component({
   selector: 'app-cambiar-contrasena',

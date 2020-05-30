@@ -3,7 +3,8 @@ import { AlertController, ModalController } from '@ionic/angular';
 import { AdministradorDatosUsuarioServicesProvider } from '../../../providers/administrador-datos-usuario-service/administrador-datos-usuario-service';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { CambiarContrasenaPage } from '../../cambiar-contrasena/cambiar-contrasena.page';
+import { CambiarContrasenaPage } from '../../usuario/cambiar-contrasena/cambiar-contrasena.page';
+import { ImagenModalPage } from '../../usuario/imagen-modal/imagen-modal.page';
 
 @Component({
   selector: 'app-datos-usuario',
@@ -83,8 +84,20 @@ export class DatosUsuarioPage implements OnInit {
     }
   }
 
-  modificarImagenModal() {
+  async modificarImagenModal() {
+    const modal = await this.modalController.create({
+      component: ImagenModalPage,
+      componentProps: {
+        nombre_usuario: this.usuario['nombre_usuario'],
+        imagen: this.usuario['imagen']
+      }
+    });
 
+    await modal.present();
+
+    const { data } = await modal.onDidDismiss();
+    this.usuario['imagen'] = data['imagen'];
+    console.log(this.usuario)
   }
 
   async cambiarContrasenaModal() {

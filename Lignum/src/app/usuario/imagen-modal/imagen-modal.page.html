@@ -1,0 +1,27 @@
+<ion-header>
+  <div class="centrado">
+    <h6>Cambiar imágen de: </h6>
+    <h6>{{ nombre_usuario }}</h6>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <ion-list padding *ngFor="let i of imagenes">
+            <ion-item (click)="seleccionarImagen(i)">
+              <img src="../../../assets/imagenes_usuario/{{i}}">
+            </ion-item>
+          </ion-list>
+
+          <div padding class="centrado">
+            <ion-item-divider></ion-item-divider>
+            <ion-button (click)="volver()">VOLVER</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

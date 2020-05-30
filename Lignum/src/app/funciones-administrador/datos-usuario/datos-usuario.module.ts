@@ -7,19 +7,23 @@ import { IonicModule } from '@ionic/angular';
 import { DatosUsuarioPageRoutingModule } from './datos-usuario-routing.module';
 
 import { DatosUsuarioPage } from './datos-usuario.page';
-import { CambiarContrasenaPage } from '../../cambiar-contrasena/cambiar-contrasena.page';
-import { CambiarContrasenaPageModule } from '../../cambiar-contrasena/cambiar-contrasena.module';
+import { CambiarContrasenaPage } from '../../usuario/cambiar-contrasena/cambiar-contrasena.page';
+import { CambiarContrasenaPageModule } from '../../usuario/cambiar-contrasena/cambiar-contrasena.module';
+import { ImagenModalPage } from '../../usuario/imagen-modal/imagen-modal.page';
+import { ImagenModalPageModule } from '../../usuario/imagen-modal/imagen-modal.module';
 
 @NgModule({
   entryComponents: [
-    CambiarContrasenaPage
+    CambiarContrasenaPage,
+    ImagenModalPage
   ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     DatosUsuarioPageRoutingModule,
-    CambiarContrasenaPageModule
+    CambiarContrasenaPageModule,
+    ImagenModalPageModule
   ],
   declarations: [DatosUsuarioPage]
 })
