@@ -80,7 +80,11 @@ const routes: Routes = [
   {
     path: 'crear-meta',
     loadChildren: () => import('./funciones-administrador/crear-meta/crear-meta.module').then( m => m.CrearMetaPageModule)
-  }
+  },
+  {
+    path: 'ranking',
+    loadChildren: () => import('./ranking/ranking.module').then( m => m.RankingPageModule)
+  },
 ];
 @NgModule({
   imports: [

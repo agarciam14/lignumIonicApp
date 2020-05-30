@@ -25,10 +25,6 @@ export class PerfilPage implements OnInit {
   constructor(private autenticacionService: AutenticacionService, private infoUsuarioPerfilServicesProvider: InfoUsuarioPerfilServicesProvider, private route: ActivatedRoute, private router: Router, public alertController: AlertController, private modalController: ModalController) {
     this.route.queryParams.subscribe(params => {
       this.usuario['documento'] = this.autenticacionService.document_;
-<<<<<<< HEAD:Lignum/src/app/perfil/perfil.page.ts
-=======
-      
->>>>>>> origin/imagen_usuario:Lignum/src/app/usuario/perfil/perfil.page.ts
       this.traerInformacionUsuario();
     });
   }
