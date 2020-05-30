@@ -60,10 +60,6 @@ export class InicioPage implements OnInit {
     this.router.navigate(['info-ciclovias']);
   }
 
-  irCrearCiclovia(){
-    this.router.navigate(['crear-ciclovia']);
-  }
-
   async mostrarAlerta(titulo, mensaje) {
     const alert = await this.alertController.create({
       header: titulo,

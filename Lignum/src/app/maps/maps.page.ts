@@ -18,8 +18,8 @@ export class MapsPage {
   directionsService = new google.maps.DirectionsService;
   directionsDisplay = new google.maps.DirectionsRenderer;
   icon = {
-    url: 'assets/icon/user.png',
-    scaledSize: new google.maps.Size(40, 40),
+    url: 'assets/Mark.png',
+    scaledSize: new google.maps.Size(21,28),
   };
   marker=new google.maps.Marker({icon: this.icon});
   directionForm: FormGroup;

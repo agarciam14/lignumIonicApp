@@ -50,8 +50,8 @@ export class ListaUsuariosPage implements OnInit {
     this.router.navigate(['crear-usuario']);
   }
 
-  crearMeta() {
-    this.router.navigate(['crear-meta']);
+  volver() {
+    this.router.navigate(['perfil']);
   }
 
   async mostrarAlerta(titulo, mensaje) {

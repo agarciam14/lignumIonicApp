@@ -124,4 +124,16 @@ export class PerfilPage implements OnInit {
     await alert.present();
   }
 
+  irCrearCiclovia(){
+    this.router.navigate(['crear-ciclovia']);
+  }
+  
+  irCrearMeta() {
+    this.router.navigate(['crear-meta']);
+  }
+
+  irListarUsuarios() {
+    this.router.navigate(['lista-usuarios']);
+  }
+
 }

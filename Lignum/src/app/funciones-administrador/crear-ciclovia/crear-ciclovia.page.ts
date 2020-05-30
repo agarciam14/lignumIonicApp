@@ -61,7 +61,7 @@ export class CrearCicloviaPage implements OnInit {
   }
 
   volver() {
-    this.router.navigate(['lista-usuarios']);
+    this.router.navigate(['perfil']);
   }
 
   async mostrarAlerta(titulo, mensaje) {

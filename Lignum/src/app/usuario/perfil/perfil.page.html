@@ -43,6 +43,20 @@
               <ion-button class="cerrar_sesion" expand="block" type="submit" (click)="cerrarSesion()">CERRAR SESIÓN</ion-button>
             </div>
           </div>
+          <div>
+          <ion-item (click) = "irListarUsuarios()">
+              <ion-icon slot="start" color="medium" name="person"></ion-icon>
+              <ion-label>Listar Usuarios</ion-label>
+            </ion-item>
+            <ion-item (click) = "irCrearCiclovia()">
+              <ion-icon slot="start" color="medium" name="book"></ion-icon>
+              <ion-label>Crear Ciclovía</ion-label>
+            </ion-item>
+            <ion-item (click) = "irCrearMeta()">
+              <ion-icon slot="start" color="medium" name="book"></ion-icon>
+              <ion-label>Crear Meta</ion-label>
+            </ion-item>
+          </div>
         </ion-col>
       </ion-row>
     </form>

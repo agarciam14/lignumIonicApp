@@ -86,7 +86,7 @@ export class CrearUsuarioPage implements OnInit {
   }
 
   volver() {
-    this.router.navigate(['crear-meta']);
+    this.router.navigate(['lista-usuarios']);
   }
 
   async mostrarAlerta(titulo, mensaje) {
