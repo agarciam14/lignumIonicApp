@@ -48,16 +48,18 @@ export class InfoCicloviasPage implements OnInit {
   }
 
   imprimirPunto(ciclovia:{}){
+    console.log(ciclovia)
     this.inicio.lat = ciclovia["ruta"]["inicio"]["lat"];
-    this.inicio.lat = ciclovia["ruta"]["inicio"]["log"];
+    this.inicio.lng = ciclovia["ruta"]["inicio"]["log"];
     this.destino.lat = ciclovia["ruta"]["fin"]["lat"];
-    this.destino.lat = ciclovia["ruta"]["fin"]["log"];
+    this.destino.lng= ciclovia["ruta"]["fin"]["log"];
     let navigationExtras: NavigationExtras = {
       state: {
         start: this.inicio,
         destination: this.destino
       }
     };
+    console.log(this.inicio, this.destino);
     this.router.navigate(['ciclo-rutas'], navigationExtras);
   }
 

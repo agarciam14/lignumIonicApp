@@ -26,6 +26,7 @@ import { InfoUsuarioHomeServicesProvider } from '../providers/info-usuario-home-
 import { ConsultaApiRutasServicesProvider } from '../providers/consulta-api-rutas-service/consulta-api-rutas-service'; 
 import { ListarCicloviasServicesProvider } from '../providers/listar-ciclovias-service/listar-ciclovias-service';
 import { RankingServicesProvider } from '../providers/ranking-service/ranking-service';
+import { ArbolesServicesProvider } from '../providers/arboles-service/arboles-service';
 
 import { AdministradorCrearMetaServicesProvider } from '../providers/administrador-crear-meta-service/administrador-crear-meta-service'
 
@@ -58,6 +59,7 @@ import { AdministradorCrearMetaServicesProvider } from '../providers/administrad
     ListarCicloviasServicesProvider,
     ConsultaApiRutasServicesProvider,
     ConsultaApiRutasServicesProvider,
+    ArbolesServicesProvider,
     AdministradorCrearMetaServicesProvider,
     RankingServicesProvider
   ],

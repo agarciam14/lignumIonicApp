@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ArbolesPageRoutingModule } from './arboles-routing.module';
+import { ArbsPageRoutingModule } from './arbs-routing.module';
 
-import { ArbolesPage } from './arboles.page';
+import { ArbsPage } from './arbs.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ArbolesPageRoutingModule
+    ArbsPageRoutingModule
   ],
-  declarations: [ArbolesPage]
+  declarations: [ArbsPage]
 })
-export class ArbolesPageModule {}
+export class ArbsPageModule {}

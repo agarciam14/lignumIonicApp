@@ -60,6 +60,8 @@ export class InfoRutasPage implements OnInit {
         destination: this.destino
       }
     };
+    console.log(this.inicio);
+    console.log(this.destino);
     this.router.navigate(['ciclo-rutas'], navigationExtras);
   }
 

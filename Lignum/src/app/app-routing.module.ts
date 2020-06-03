@@ -85,6 +85,10 @@ const routes: Routes = [
     path: 'ranking',
     loadChildren: () => import('./ranking/ranking.module').then( m => m.RankingPageModule)
   },
+  {
+    path: 'arbs',
+    loadChildren: () => import('./arbs/arbs.module').then( m => m.ArbsPageModule)
+  },
 ];
 @NgModule({
   imports: [

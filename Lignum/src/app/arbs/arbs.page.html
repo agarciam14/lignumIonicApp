@@ -1,0 +1,13 @@
+<ion-content>
+  <ion-card-header>
+    <ion-card-title class="ion-text-center">Arboles</ion-card-title>
+  </ion-card-header>
+    <ion-list *ngFor="let arbol of arboles">
+      <div class="arboles">
+        <ion-item-sliding #sliding>
+            <h5 class="especie">{{ arbol["especie"] }}</h5>
+            <ion-button *ngIf="Usuario['puntaje']>=arbol['puntos']"> Adoptar </ion-button>
+        </ion-item-sliding>
+      </div>
+    </ion-list>
+</ion-content>
