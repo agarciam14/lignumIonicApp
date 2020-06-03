@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
             this.mostrarAlerta('Error interno', data['mensaje']);
           } else if (data["tipo"] == "aprobado") {
             this.autenticacionService.login(data['mensaje']);
-            this.router.navigate(['lista-usuarios']);
+            this.router.navigate(['inicio']);
           }
         }, 
         (error) => {
