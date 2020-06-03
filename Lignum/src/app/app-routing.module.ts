@@ -50,11 +50,6 @@ const routes: Routes = [
     loadChildren: () => import('./maps/maps-routing.module').then( m => m.MapsPageRoutingModule)
   },
   {
-    path: 'arboles',
-    canActivate: [AuthGuardService],
-    loadChildren: () => import('./arboles/arboles-routing.module').then( m => m.ArbolesPageRoutingModule)
-  },
-  {
     path: 'info-rutas',
     canActivate: [AuthGuardService],
     loadChildren: () => import('./info-rutas/info-rutas.module').then( m => m.InfoRutasPageModule)
