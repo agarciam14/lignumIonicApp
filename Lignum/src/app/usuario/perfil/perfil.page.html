@@ -44,7 +44,11 @@
             </div>
           </div>
           <div>
-          <ion-item (click) = "irListarUsuarios()">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title class="ion-text-center">Funciones Admin</ion-card-title>
+            </ion-card-header>
+            <ion-item (click) = "irListarUsuarios()">
               <ion-icon slot="start" color="medium" name="person"></ion-icon>
               <ion-label>Listar Usuarios</ion-label>
             </ion-item>
@@ -56,6 +60,7 @@
               <ion-icon slot="start" color="medium" name="book"></ion-icon>
               <ion-label>Crear Meta</ion-label>
             </ion-item>
+          </ion-card>
           </div>
         </ion-col>
       </ion-row>
