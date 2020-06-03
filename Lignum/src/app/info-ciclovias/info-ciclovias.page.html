@@ -8,6 +8,8 @@
           <ion-item (click)="imprimirPunto(ciclovia)">
             <ion-icon slot="start" color="medium" name="bicycle"></ion-icon>
             <h5 class="nombre_ciclovia">{{ ciclovia["nombre_ciclovia"] }}</h5>
+            <br>
+            <h5 class="nombre_ciclovia">Horas: {{ ciclovia["hora_inicio"] }}-{{ ciclovia["hora_fin"] }}  Dias: {{ ciclovia["dia"] }}</h5>
           </ion-item>
         </ion-item-sliding>
       </div>

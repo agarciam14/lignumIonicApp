@@ -12,15 +12,25 @@ import { InfoUsuarioHomeServicesProvider } from '../../providers/info-usuario-ho
 })
 export class ArbsPage implements OnInit {
   arboles = []
-  usuario= {}
+  usuario= {
+    'nombre_usuario': '',
+    'documento': '',
+    'puntaje': 0,
+    'recorrido': 0,
+    'tareas_actuales':[],
+    'tareas_realizadas':[]
+  }
+  misArbs = []
+
+  puntajeU = 0;
 
   constructor(private route: ActivatedRoute, public router: Router, public ArbolesServicesProvider:ArbolesServicesProvider,private infoUsuarioHomeServicesProvider: InfoUsuarioHomeServicesProvider,private autenticacionService: AutenticacionService, public alertController: AlertController) {
-    this.traerArboles();
     this.route.queryParams.subscribe(params => {
       this.usuario['documento'] = this.autenticacionService.document_;
       this.traerInformacionUsuario();
       console.log(this.usuario);
     });
+    this.traerArboles();
    }
 
   ngOnInit() {
@@ -52,6 +62,8 @@ export class ArbsPage implements OnInit {
           this.mostrarAlerta('Error en el documento', data['mensaje']);
         } else if(data['tipo'] == "aprobado") {
           this.usuario = data['mensaje'];
+          this.puntajeU = this.usuario["puntaje"];
+          console.log(data);
         } else {
           this.mostrarAlerta('Mensaje malformado', 'El paquete no se logro enviar bien.')
         }
@@ -59,6 +71,10 @@ export class ArbsPage implements OnInit {
         this.mostrarAlerta('Error conexion', 'Ocurrio un error, revisa tu conexion a internet');
       }
     );
+  }
+
+  adoptarArbol(arbol){
+    this.misArbs.push(arbol);
   }
 
   async mostrarAlerta(titulo, mensaje) {

@@ -1,13 +1,34 @@
 <ion-content>
-  <ion-card-header>
+  <ion-card-header class="titulo">
     <ion-card-title class="ion-text-center">Arboles</ion-card-title>
   </ion-card-header>
     <ion-list *ngFor="let arbol of arboles">
       <div class="arboles">
         <ion-item-sliding #sliding>
+          <ion-item>
+            <ion-icon name="leaf"></ion-icon>
             <h5 class="especie">{{ arbol["especie"] }}</h5>
-            <ion-button *ngIf="Usuario['puntaje']>=arbol['puntos']"> Adoptar </ion-button>
+            <br>
+            <h5>Puntos necesario: {{arbol["puntos"]}}</h5>
+            <br>
+            <ion-button  *ngIf="puntajeU>=arbol['puntos']" (click)="adoptarArbol(arbol['especie'])"> Adoptar </ion-button>
+          </ion-item>
         </ion-item-sliding>
       </div>
     </ion-list>
 </ion-content>
+<ion-card>
+  <ion-card-header>
+      <ion-card-subtitle class="ion-text-center">Mis Arboles</ion-card-subtitle>
+    </ion-card-header>
+      <ion-list *ngFor="let arb of misArbs">
+        <div class="arboles">
+          <ion-item-sliding #sliding>
+            <ion-item>
+              <ion-icon name="leaf"></ion-icon>
+              <h5 class="especie">{{ arb }}</h5>
+            </ion-item>
+          </ion-item-sliding>
+        </div>
+      </ion-list>
+</ion-card>

@@ -40,6 +40,7 @@ export class InicioPage implements OnInit {
           this.mostrarAlerta('Error en el documento', data['mensaje']);
         } else if(data['tipo'] == "aprobado") {
           this.usuario = data['mensaje'];
+          console.log(data);
         } else {
           this.mostrarAlerta('Mensaje malformado', 'El paquete no se logro enviar bien.')
         }

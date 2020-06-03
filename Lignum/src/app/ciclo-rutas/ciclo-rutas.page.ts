@@ -25,8 +25,6 @@ export class CicloRutasPage implements OnInit {
       if (this.router.getCurrentNavigation().extras.state){
         this.currentStart = this.router.getCurrentNavigation().extras.state.start;
         this.currentDestination = this.router.getCurrentNavigation().extras.state.destination;
-        console.log(this.currentStart);
-        console.log(this.currentDestination);
         this.calculateAndDisplayRoute();
       }
     });
@@ -46,6 +44,8 @@ export class CicloRutasPage implements OnInit {
   }
 
   calculateAndDisplayRoute() {
+    console.log(this.currentStart);
+    console.log(this.currentDestination);
     this.directionsService.route({
       origin: this.currentStart,
       destination: this.currentDestination,
